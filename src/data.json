@@ -1,0 +1,31 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@admin.lt",
+            "password": "Admin_123",
+            "avatarUrl": "https://png.pngtree.com/png-vector/20190629/ourmid/pngtree-office-work-user-icon-avatar-png-image_1527655.jpg"
+        }
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "creatorId": 1,
+            "title": "How to set a variable value on receiving a message in telegram bot",
+            "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work.",
+            "questionUpvotes": 0,
+            "QuestionIsUpdated": false
+        }
+    ],
+    "answers": [
+        {
+            "id": 1,
+            "questionId": 1,
+            "creatorId": 1,
+            "answer": "To process incoming messages and set a variable value in a Telegram bot, you can use a library or framework such as python-telegram-bot, which provides an interface to interact with the Telegram Bot API.",
+            "answerUpvotes": 0,
+            "answerIsUpdated": false
+        }
+    ]
+}
