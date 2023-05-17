@@ -5,10 +5,11 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
     border-bottom: rgba(156,150,150,0.75);
-    box-shadow: 1px 2px 14px 2px rgba(156,150,150,0.75);
-    -webkit-box-shadow: 1px 2px 14px 2px rgba(156,150,150,0.75);
-    -moz-box-shadow: 1px 2px 14px 2px rgba(156,150,150,0.75);
+    box-shadow: 1px 2px 14px 2px rgba(10, 10, 10, 0.75);
+    -webkit-box-shadow: 1px 2px 14px 2px rgba(22, 22, 22, 0.75);
+    -moz-box-shadow: 1px 2px 14px 2px rgba(26, 25, 25, 0.75);
     > div {
         margin: 10px 100px;
     }
