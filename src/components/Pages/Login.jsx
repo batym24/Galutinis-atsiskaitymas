@@ -7,6 +7,7 @@ const StyledMain = styled.main`
 const Login = () => {
     return ( 
         <StyledMain>
+            
         </StyledMain>
      );
 }
