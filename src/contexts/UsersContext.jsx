@@ -25,6 +25,8 @@ const UsersProvider = ({children}) => {
 
     const [users, setUsers] = useReducer(reducer, [])
 
+    const [currentUser, setCurrentUser] = useState(null)
+
     const [validUser, setValidUser] = useState(false)
 
     useEffect(() => {
@@ -45,7 +47,9 @@ const UsersProvider = ({children}) => {
                 setUsers,
                 ACTION_TYPE,
                 setValidUser,
-                validUser
+                validUser,
+                currentUser,
+                setCurrentUser
             }}
         >
             {children}
