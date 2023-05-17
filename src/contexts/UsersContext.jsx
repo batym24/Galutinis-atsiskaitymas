@@ -10,6 +10,14 @@ const reducer = (state, action) => {
     switch(action.type){
         case ACTION_TYPE.GET:
             return action.data
+        case ACTION_TYPE.ADD:
+            fetch('http://localhost:8080/user', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(action.data)
+            })
+            return [...state, action.data]
+        
     }
 }
 
