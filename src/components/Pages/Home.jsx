@@ -1,5 +1,7 @@
 import styled from "styled-components";
-
+import { useContext } from "react";
+import QuestionsContext from "../../contexts/QuestionsContext";
+import Question from "../UI/Molecules/Question";
 const StyledMain = styled.main`
     display: flex;
     height: calc(100vh - 100px);
@@ -56,6 +58,9 @@ const StyledMain = styled.main`
 `
 
 const Home = () => {
+
+    const {questions} = useContext(QuestionsContext)
+
     return ( 
         <StyledMain>
             <div className="main-container">
@@ -67,7 +72,15 @@ const Home = () => {
                     <div className="filter">
                         <button>Filter</button>
                     </div>
-
+                </div>
+                <div className="questions">
+                    {
+                        questions.map(question => 
+                            <Question 
+                                key={question.id}
+                                question = {question}
+                            />)
+                    }
                 </div>
 
             </div>
