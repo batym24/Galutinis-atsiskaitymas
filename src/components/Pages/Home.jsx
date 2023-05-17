@@ -40,6 +40,11 @@ const StyledMain = styled.main`
                 font-size: 0.9rem;
             }
 
+            button:hover {
+            background-color: #056fc0;
+        }
+
+
         }
 
         .filter{
