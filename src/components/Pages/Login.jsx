@@ -1,5 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useFormik } from "formik";
+import * as yup from 'yup'
+import {v4 as generateId} from 'uuid'
+import UsersContext from "../../contexts/UsersContext";
+import { useContext } from "react";
+
 
 const StyledMain = styled.main`
         display: flex;
@@ -67,29 +73,93 @@ const StyledMain = styled.main`
 `
 
 const Login = () => {
+
+    const navigate = useNavigate()
+
+    const {currentUser, setCurrentUser, users, validUser, setValidUser} = useContext(UsersContext)
+
+    const values = {
+        username: "",
+        password: ""
+    }
+
+    const validationSchema = yup.object({
+        username: yup.string()
+        .required('Please enter your username')
+        .min(4, "Username should be atleast 4 symbols")
+        .max(20, "User name shouldn't be longer than 20 symbols"),
+       password: yup.string()
+        .matches(
+           /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}$/,
+           "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+         )
+         .required('Please enter your password')
+    })
+
+    const formik = useFormik({
+        initialValues: values,
+        validationSchema: validationSchema,
+        onSubmit: (values, {resetForm}) => {
+            const loggedInUser = users.find(user => values.username === user.username && values.password == user.password)
+            if(loggedInUser){
+                setCurrentUser(loggedInUser)
+                setValidUser(false)
+                navigate('/home')
+            }
+            else {
+                setValidUser(true)
+                resetForm()
+                setTimeout(() => {
+                    setValidUser(false);
+                }, 10000);
+            }
+        }
+    })
+
     return ( 
         <StyledMain>
             <div>
                 <h1>Login</h1>
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                     <div>
                         <label htmlFor="username">Username</label>
                         <input 
                         type="text" 
                         name="username" 
-                        id="username" 
+                        id="username"
+                        value={formik.values.username}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         />
+                        {
+                            (formik.touched.username && formik.errors.username) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.username}</p>
+                        }
                     </div>
                     <div>
-                        <label htmlFor="password">Username</label>
+                        <label htmlFor="password">Password</label>
                         <input 
                         type="password" 
                         name="password" 
-                        id="password" 
+                        id="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur} 
                         />
+                        {
+                            (formik.touched.password && formik.errors.password) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.password}</p>
+                        }
                     </div>
                     <input type="submit" value={"Login"} />
                 </form>
+                {
+                    validUser && 
+                    <>
+                    <p style={{color:"tomato", fontSize: "1rem"}}>Username or password is not valid</p>
+                    <p style={{color:"tomato", fontSize: "1rem"}}>Please provide valid username and password</p>
+                    </>
+                }
             </div>
             <p>Dont have an account yet ? <Link to="/register">Register</Link></p>
         </StyledMain>
