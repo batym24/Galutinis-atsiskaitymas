@@ -58,7 +58,7 @@ const Header = () => {
     return ( 
         <StyledHeader>
             <div className="logo">
-                <img src="https://www.vectorlogo.zone/logos/stackoverflow/stackoverflow-ar21.png" alt="logo" />
+                <Link to="/home"><img src="https://www.vectorlogo.zone/logos/stackoverflow/stackoverflow-ar21.png" alt="logo" /></Link>
             </div>
             <div className="register-login">
                 <Link to='/login'><button className="login">Login</button></Link>

@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { UsersProvider } from './contexts/UsersContext';
+import { QuestionsProvider } from './contexts/QuestionsContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <UsersProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </UsersProvider>
+  <QuestionsProvider>
+    <UsersProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </UsersProvider>
+  </QuestionsProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
