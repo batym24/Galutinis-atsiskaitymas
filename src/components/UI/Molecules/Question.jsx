@@ -9,6 +9,7 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+    padding: 20px;
 
     > div{
         padding: 10px 30px;
@@ -17,6 +18,7 @@ const StyledDiv = styled.div`
     .votes-answers{
         display: flex;
         flex-direction: column;
+        gap: 10px;
     }
     .user {
         display: flex;
@@ -26,6 +28,9 @@ const StyledDiv = styled.div`
         img {
             width: 25px;
         }
+    }
+    .question-title {
+        align-self: flex-start;
     }
 `
 const Question = ({question}) => {
