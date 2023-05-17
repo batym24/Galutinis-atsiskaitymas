@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
@@ -14,7 +15,7 @@ const StyledMain = styled.main`
         border-radius: 10px;
         width: 650px;
         height: 560px;
-        margin: auto;
+        margin: 30px auto;
         padding: 20px;
         background-color: white;
         
@@ -51,7 +52,15 @@ const StyledMain = styled.main`
             font-weight: 600;
             cursor: pointer;
         }
+
     }
+    p {
+            text-align: center;
+            a {
+                text-decoration: none;
+                color: #0a95ff;
+            }
+        }
 `
 
 const Registration = () => {
@@ -103,6 +112,7 @@ const Registration = () => {
                     <input type="submit" value={"Register"} />
                 </form>
             </div>
+            <p>Already have an acount ? <Link to="/login">Log in</Link></p>
         </StyledMain>
      );
 }

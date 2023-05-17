@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    border-bottom: rgba(156,150,150,0.75);
+    border-bottom: #babfc4;
     box-shadow: 1px 2px 14px 2px rgba(10, 10, 10, 0.75);
     -webkit-box-shadow: 1px 2px 14px 2px rgba(22, 22, 22, 0.75);
     -moz-box-shadow: 1px 2px 14px 2px rgba(26, 25, 25, 0.75);
@@ -26,6 +26,7 @@ const StyledHeader = styled.header`
             cursor: pointer;
             padding: 10px 30px;
             border-radius: 3px;
+            font-size: 0.9rem;
         }
 
         .login {
