@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useFormik } from "formik";
+import * as yup from 'yup'
+import {v4 as generateId} from 'uuid'
+import UsersContext from "../../contexts/UsersContext";
+import { useContext } from "react";
 
 const StyledMain = styled.main`
     display: flex;
@@ -64,6 +69,46 @@ const StyledMain = styled.main`
 `
 
 const Registration = () => {
+
+    const {users, setUsers, ACTION_TYPE} = useContext(UsersContext)
+
+    const values = {
+        username: "",
+        email: "",
+        password: "",
+        passwordRepeat: "",
+        avatarUrl: ""
+    }
+
+    const validationSchema = yup.object({
+        username: yup.string()
+         .required('Please provide your username')
+         .min(4, "Username should be atleast 4 symbols")
+         .max(20, "User name shouldn't be longer than 20 symbols"),
+        email: yup.string()
+         .email('Please enter valid email')
+         .required('Please provide your email'),
+        password: yup.string()
+         .matches(
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}$/,
+            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+          )
+          .required('Please enter valid password'),
+        passwordRepeat: yup.mixed()
+         .oneOf([yup.ref('password')], 'Passwords must match')
+         .required('Please enter valid password'),
+        avatarUrl: yup.string()
+        .url('This field must be a valid URL')
+    })
+
+    const formik = useFormik({
+        initialValues: values,
+        validationSchema: validationSchema,
+        onSubmit: values => {
+            console.log(values)
+        }
+    })
+
     return ( 
         <StyledMain>
             <div>

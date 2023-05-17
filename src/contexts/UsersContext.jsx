@@ -39,7 +39,9 @@ const UsersProvider = ({children}) => {
     return ( 
         <UsersContext.Provider
             value={{
-
+                users,
+                setUsers,
+                ACTION_TYPE
             }}
         >
             {children}
