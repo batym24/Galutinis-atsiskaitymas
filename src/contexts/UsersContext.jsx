@@ -25,6 +25,8 @@ const UsersProvider = ({children}) => {
 
     const [users, setUsers] = useReducer(reducer, [])
 
+    const [validUser, setValidUser] = useState(false)
+
     useEffect(() => {
         fetch('http://localhost:8080/user')
         .then(res => res.json())
@@ -41,7 +43,9 @@ const UsersProvider = ({children}) => {
             value={{
                 users,
                 setUsers,
-                ACTION_TYPE
+                ACTION_TYPE,
+                setValidUser,
+                validUser
             }}
         >
             {children}

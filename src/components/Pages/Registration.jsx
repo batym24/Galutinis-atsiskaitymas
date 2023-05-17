@@ -19,7 +19,7 @@ const StyledMain = styled.main`
         border: 3px solid black;
         border-radius: 10px;
         width: 650px;
-        height: 560px;
+        height: 660px;
         margin: 30px auto;
         padding: 20px;
         background-color: white;
@@ -59,8 +59,11 @@ const StyledMain = styled.main`
         }
 
     }
-    p {
+    p
+     {
             text-align: center;
+            margin: 0;
+            font-size: 0.65rem;
             a {
                 text-decoration: none;
                 color: #0a95ff;
@@ -70,7 +73,7 @@ const StyledMain = styled.main`
 
 const Registration = () => {
 
-    const {users, setUsers, ACTION_TYPE} = useContext(UsersContext)
+    const {users, setUsers, ACTION_TYPE, validUser, setValidUser} = useContext(UsersContext)
 
     const values = {
         username: "",
@@ -104,8 +107,28 @@ const Registration = () => {
     const formik = useFormik({
         initialValues: values,
         validationSchema: validationSchema,
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: (values, { resetForm }) => {
+            const newUser = {
+                id: generateId(),
+                username: formik.values.username,
+                email: formik.values.email,
+                password: formik.values.password,
+                avatarUrl: formik.values.avatarUrl
+            }
+            if(newUser.username !== users.find(user => user.username === newUser.username)?.username && newUser.email !== users.find(user => user.email === newUser.email)?.email){
+                setUsers({
+                    type: ACTION_TYPE.ADD,
+                    data: newUser
+                })
+                setValidUser(false)
+            }
+            else {
+                setValidUser(true)
+                resetForm()
+                setTimeout(() => {
+                    setValidUser(false);
+                }, 10000);
+            }
         }
     })
 
@@ -113,14 +136,21 @@ const Registration = () => {
         <StyledMain>
             <div>
                 <h1>Registration</h1>
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                     <div>
                         <label htmlFor="username">Username</label>
                         <input 
                         type="text" 
                         id="username"
                         name="username"
+                        value={formik.values.username}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         />
+                        {
+                            (formik.touched.username && formik.errors.username) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.username}</p>
+                        }
                     </div>
                     <div>
                         <label htmlFor="email">Email</label>
@@ -128,7 +158,14 @@ const Registration = () => {
                         type="email" 
                         id="email"
                         name="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         />
+                        {
+                            (formik.touched.email && formik.errors.email) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.email}</p>
+                        }
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
@@ -136,7 +173,14 @@ const Registration = () => {
                         type="password" 
                         id="password"
                         name="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         />
+                        {
+                            (formik.touched.password && formik.errors.password) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.password}</p>
+                        }
                     </div>
                     <div>
                         <label htmlFor="passwordRepeat">Repeat password</label>
@@ -144,7 +188,14 @@ const Registration = () => {
                         type="password" 
                         id="passwordRepeat"
                         name="passwordRepeat"
+                        value={formik.values.passwordRepeat}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         />
+                        {
+                            (formik.touched.passwordRepeat && formik.errors.passwordRepeat) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.passwordRepeat}</p>
+                        }
                     </div>
                     <div>
                         <label htmlFor="avatarUrl">Avatar url</label>
@@ -152,10 +203,24 @@ const Registration = () => {
                         type="url" 
                         id="avatarUrl"
                         name="avatarUrl"
+                        value={formik.values.avatarUrl}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         />
+                        {
+                            (formik.touched.avatarUrl && formik.errors.avatarUrl) &&
+                            <p style={{color: "tomato", textAlign:"center"}}>{formik.errors.avatarUrl}</p>
+                        }
                     </div>
                     <input type="submit" value={"Register"} />
                 </form>
+                {
+                    validUser && 
+                    <>
+                    <p style={{color:"tomato", fontSize: "1rem"}}>Username or email is already in use</p>
+                    <p style={{color:"tomato", fontSize: "1rem"}}>Please provide other username or email</p>
+                    </>
+                }
             </div>
             <p>Already have an acount ? <Link to="/login">Log in</Link></p>
         </StyledMain>
