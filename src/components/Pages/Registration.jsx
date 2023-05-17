@@ -22,12 +22,13 @@ const StyledMain = styled.main`
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 15px
         }
 
         form > div {
             display: flex;
             flex-direction: column;
-            gap: 10px
+            gap: 5px
         }
 
         input {
