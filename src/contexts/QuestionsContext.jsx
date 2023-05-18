@@ -34,7 +34,6 @@ const QuestionsProvider = ({children}) => {
         }))
     }, [])
 
-    console.log(questions)
 
     return ( 
         <QuestionsContext.Provider
