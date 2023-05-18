@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const StyledMain = styled.main`
+    position: relative;
     section {
         
         height: calc(100vh - 100px);
@@ -56,6 +58,14 @@ const StyledMain = styled.main`
             }
         }
     }
+    .fa-chevron-left {
+        position: absolute;
+        top: 0;
+        left: 25px;
+        font-size: 2rem;
+        color: black;
+        
+    }
 `
 
 const QuestionPage = () => {
@@ -70,7 +80,7 @@ const QuestionPage = () => {
         fetch(`http://localhost:8080/questions/${id}`)
         .then(res => res.json())
         .then(data => setQuestion(data))
-    })
+    }, [])
 
     return ( 
         <StyledMain>
@@ -104,7 +114,7 @@ const QuestionPage = () => {
 
                             </div>
                         </div>
-
+                        <Link to='/home'><i className="fa-solid fa-chevron-left"></i></Link>
                     </section> :
                     <h1>Loading...</h1>
             }
