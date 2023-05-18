@@ -44,7 +44,7 @@ const StyledMain = styled.main`
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid gray;
-            padding: 30px;
+            padding: 20px 30px;
 
             button {
                 background-color: #0a95ff;
@@ -70,6 +70,37 @@ const StyledMain = styled.main`
         font-size: 2rem;
         color: black;
         
+    }
+
+    .new-answer {
+        padding: 30px 30px 0 30px;
+
+        textarea {
+            width: 85vw;
+            height: 200px;
+            margin: auto;
+            resize: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                margin: 20px auto;
+                min-width: 600px;
+                max-width: 650px;
+                background-color: #0a95ff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                border-top: 1px solid #6cc0ff;
+                padding: 15px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
     }
 `
 
@@ -151,7 +182,7 @@ const QuestionPage = () => {
                             <div className="title">
                                 <h2>Write an answer</h2>
                             </div>
-                            <div>
+                            <div className="new-answer">
                                 <form>
                                     <textarea 
                                     name="" 
