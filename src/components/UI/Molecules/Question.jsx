@@ -41,6 +41,10 @@ const StyledDiv = styled.div`
     .question-title {
         align-self: flex-start;
     }
+
+    .user {
+        width: 100px;
+    }
 `
 const Question = ({question}) => {
 

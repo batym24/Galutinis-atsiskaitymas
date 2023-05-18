@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as yup from 'yup'
 import {v4 as generateId} from 'uuid'
 import UsersContext from "../../contexts/UsersContext";
+import QuestionsContext from "../../contexts/QuestionsContext";
 import { useContext } from "react";
 
 const StyledMain = styled.main`
@@ -42,6 +43,28 @@ const StyledMain = styled.main`
         display: flex;
         justify-content: center;
         gap: 10px;
+
+        input, button {
+            margin-bottom: 30px;
+            background-color: #0a95ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            border-top: 1px solid #6cc0ff;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        input:hover, button:hover {
+            opacity: 0.8;
+        }
+    }
+    p {
+        color: tomato;
+        margin: 0;
+        font-size: 0.8rem;
     }
 
 `
@@ -49,6 +72,8 @@ const StyledMain = styled.main`
 const AskNewQuestion = () => {
 
     const {currentUser} = useContext(UsersContext)
+
+    const {setQuestions, QUESTIONS_ACTION_TYPE, questions} = useContext(QuestionsContext)
 
     const values = {
         title: "",
@@ -78,7 +103,11 @@ const AskNewQuestion = () => {
                 questionUpvotes: 0,
                 QuestionIsUpdated: false
             }
-            console.log(newQuestion)
+            setQuestions({
+                type: QUESTIONS_ACTION_TYPE.ADD,
+                data: newQuestion
+            })
+            console.log(questions)
         }
     })
 
@@ -101,7 +130,7 @@ const AskNewQuestion = () => {
                     />
                     {
                         (formik.touched.title && formik.errors.title) &&
-                        <p style={{color: "tomato"}}>{formik.errors.title}</p>
+                        <p>{formik.errors.title}</p>
                     }
                 </div>
                 <div className="question-part">
@@ -116,12 +145,12 @@ const AskNewQuestion = () => {
                      />
                      {
                         (formik.touched.description && formik.errors.description) &&
-                        <p style={{color: "tomato"}}>{formik.errors.description}</p>
+                        <p>{formik.errors.description}</p>
                      }
                 </div>
                 <div className="buttons">
                     <input type="submit" value={'Create a question'} />
-                    <button>Rest</button>
+                    <button onClick={formik.handleReset}>Rest</button>
                 </div>
             </form>
         </StyledMain>
