@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
     align-items: center;
     height: 100px;
     border-bottom: #babfc4;
+    background-color: white;
     box-shadow: 1px 2px 14px 2px rgba(10, 10, 10, 0.75);
     -webkit-box-shadow: 1px 2px 14px 2px rgba(22, 22, 22, 0.75);
     -moz-box-shadow: 1px 2px 14px 2px rgba(26, 25, 25, 0.75);

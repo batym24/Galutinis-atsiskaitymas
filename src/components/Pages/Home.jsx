@@ -6,7 +6,6 @@ import Question from "../UI/Molecules/Question";
 const StyledMain = styled.main`
     display: flex;
     height: calc(100vh - 100px);
-    background-color: #f1f2f3;
     .main-container {
         display: flex;
         flex-direction: column;
