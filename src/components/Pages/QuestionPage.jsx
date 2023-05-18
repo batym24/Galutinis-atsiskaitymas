@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import UsersContext from "../../contexts/UsersContext";
+import { useContext } from "react";
 
 const StyledMain = styled.main`
     section {
@@ -32,13 +34,33 @@ const StyledMain = styled.main`
         }
 
         .title {
+            display: flex;
+            justify-content: space-between;
             border-bottom: 1px solid gray;
             padding: 30px;
+
+            button {
+                background-color: #0a95ff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                border-top: 1px solid #6cc0ff;
+                padding: 15px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            button:hover {
+                opacity: 0.8;
+            }
         }
     }
 `
 
 const QuestionPage = () => {
+
+    const {currentUser} = useContext(UsersContext)
 
     const {id} = useParams()
 
@@ -58,6 +80,10 @@ const QuestionPage = () => {
                         <div className="container">
                             <div className="title">
                                 <h2>{question.title}</h2>
+                                {   currentUser &&
+                                    question.creatorId.toString() === currentUser.id.toString() &&
+                                    <button>Edit Question</button>
+                                }
                             </div>
                             <div className="question-description">
                                 <div className="upvotes">

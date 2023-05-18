@@ -107,7 +107,6 @@ const AskNewQuestion = () => {
                 type: QUESTIONS_ACTION_TYPE.ADD,
                 data: newQuestion
             })
-            console.log(questions)
         }
     })
 
