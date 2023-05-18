@@ -26,7 +26,6 @@ const AnswersProvider = ({children}) => {
         }))
     },[])
 
-    console.log(answers)
 
     return ( 
         <AnswersContext.Provider

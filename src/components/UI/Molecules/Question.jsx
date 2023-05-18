@@ -46,8 +46,9 @@ const StyledDiv = styled.div`
         width: 100px;
     }
 `
-const Question = ({question}) => {
-
+const Question = ({question, answer}) => {
+    
+    console.log(answer)
     const {users} = useContext(UsersContext)
 
     return ( 

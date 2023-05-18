@@ -78,11 +78,15 @@ const Home = () => {
                 </div>
                 <div className="questions">
                     {
-                        questions.map(question => 
-                            <Question 
+                        questions.map(question => {
+                            const answer = answers.find(answer => answer.questionId === question.id)
+                            return (<Question 
                                 key={question.id}
                                 question = {question}
+                                answer = {answer}
                             />)
+                        }
+                            )
                     }
                 </div>
 
