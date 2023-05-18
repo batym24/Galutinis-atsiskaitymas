@@ -9,6 +9,7 @@ import Loading from "../UI/Organisms/Loading";
 import { useFormik } from "formik";
 import * as yup from 'yup'
 import {v4 as generateId} from 'uuid'
+import Answer from "../UI/Molecules/Answer";
 
 const StyledMain = styled.main`
     position: relative;
@@ -66,7 +67,7 @@ const StyledMain = styled.main`
     .fa-chevron-left {
         position: absolute;
         top: 0;
-        left: 25px;
+        left: 15px;
         font-size: 2rem;
         color: black;
         
@@ -102,13 +103,19 @@ const StyledMain = styled.main`
             }
         }
     }
+
+    .answer {
+        p {
+            padding: 20px;
+        }
+    }
 `
 
 const QuestionPage = () => {
 
     const {currentUser} = useContext(UsersContext)
 
-    const {setAnswers} = useContext(AnswersContext)
+    const {setAnswers, answers} = useContext(AnswersContext)
 
     const {id} = useParams()
 
@@ -149,7 +156,7 @@ const QuestionPage = () => {
     return ( 
         <StyledMain>
             {
-                question ?
+                question && answers ?
                     <section>
                         <div className="container">
                             <div className="title">
@@ -174,8 +181,20 @@ const QuestionPage = () => {
                             <div className="title">
                                 <h2>Answers</h2>
                             </div>
-                            <div>
-
+                            <div className="answer">
+                                {   
+                                    answers.map(answer => {
+                                        if(answer.questionId.toString() === id.toString()) {
+                                            return <Answer 
+                                                key={answer.id}
+                                                answer={answer}
+                                            />
+                                        }
+                                        else {
+                                            return <p>There is no answers yet</p>
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="container">
