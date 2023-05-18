@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import UsersContext from "../../../contexts/UsersContext";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 const StyledDiv = styled.div`
@@ -10,6 +11,14 @@ const StyledDiv = styled.div`
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     padding: 20px;
+
+    a {
+        text-decoration: none;
+    }
+
+    h3 {
+        color: #0063bf;
+    }
 
     > div{
         padding: 10px 30px;
@@ -32,6 +41,10 @@ const StyledDiv = styled.div`
     .question-title {
         align-self: flex-start;
     }
+
+    .user {
+        width: 100px;
+    }
 `
 const Question = ({question}) => {
 
@@ -44,7 +57,7 @@ const Question = ({question}) => {
                 <span>Answers</span>
             </div>
             <div className="question-title">
-                <h3>{question.title}</h3>
+                <Link to={`/question/${question.id}`}><h3>{question.title}</h3></Link>
             </div>
             <div className="user">
                 <img src={users.find(user => user.id === question.creatorId).avatarUrl} alt="user-avatar" />

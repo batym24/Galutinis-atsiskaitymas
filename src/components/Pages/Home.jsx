@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { useContext } from "react";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import Question from "../UI/Molecules/Question";
+import { Link } from "react-router-dom";
+
 const StyledMain = styled.main`
     display: flex;
     height: calc(100vh - 100px);
-    background-color: #f1f2f3;
     .main-container {
         display: flex;
         flex-direction: column;
@@ -67,7 +68,7 @@ const Home = () => {
                 <div className="header-filter">
                     <div className="header">
                         <h1>All Questions</h1>
-                        <button>Ask question</button>
+                        <Link to="/askQuestion"><button>Ask question</button></Link>
                     </div>
                     <div className="filter">
                         <button>Filter</button>
