@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import Question from "../UI/Molecules/Question";
+
 const StyledMain = styled.main`
     display: flex;
     height: calc(100vh - 100px);

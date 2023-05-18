@@ -3,7 +3,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const StyledMain = styled.main`
-    
+    .question-container {
+        width: 90vw;
+        margin: 20px auto;
+        border: 3px solid gray;
+        
+
+        .title {
+            border-bottom: 1px solid gray;
+            padding: 30px;
+        }
+    }
 `
 
 const QuestionPage = () => {
@@ -19,8 +29,28 @@ const QuestionPage = () => {
     })
 
     return ( 
-        <>
-        </>
+        <StyledMain>
+            {
+                question ?
+                    <>
+                        <div className="question-container">
+                            <div className="title">
+                                <h2>{question.title}</h2>
+                            </div>
+                            <div>
+                                <div>
+                                    
+                                </div>
+                                <div>
+                                    <p>{question.description}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </> :
+                    <h1>Loading...</h1>
+            }
+        </StyledMain>
      );
 }
  
