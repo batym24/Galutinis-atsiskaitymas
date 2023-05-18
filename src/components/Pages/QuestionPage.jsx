@@ -8,13 +8,15 @@ const StyledMain = styled.main`
         height: calc(100vh - 100px);
     }
 
-    .question-container {
+    .container {
         width: 90vw;
         margin: 20px auto;
         border: 3px solid gray;
+        background-color: white;
 
         .question-description {
             display: flex;
+            padding: 10px;
 
             .upvotes {
                 display: flex;
@@ -53,7 +55,7 @@ const QuestionPage = () => {
             {
                 question ?
                     <section>
-                        <div className="question-container">
+                        <div className="container">
                             <div className="title">
                                 <h2>{question.title}</h2>
                             </div>
@@ -66,6 +68,14 @@ const QuestionPage = () => {
                                 <div className="description">
                                     <p>{question.description}</p>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="container">
+                            <div className="title">
+                                <h2>Answers</h2>
+                            </div>
+                            <div>
+
                             </div>
                         </div>
 
