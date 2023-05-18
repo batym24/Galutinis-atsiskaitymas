@@ -1,12 +1,18 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import Header from './components/UI/Organisms/Header';
 import Registration from './components/Pages/Registration';
 import Login from './components/Pages/Login';
 import Home from './components/Pages/Home';
 import QuestionPage from './components/Pages/QuestionPage';
+import UsersContext from './contexts/UsersContext';
+import { useContext } from 'react';
+import AskNewQuestion from './components/Pages/AskNewQuestion';
 
 const App = () => {
+
+  const {currentUser} = useContext(UsersContext)
+
   return (
     <>
       <Header />
@@ -15,6 +21,7 @@ const App = () => {
         <Route path='/register' element={<Registration/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/question/:id' element={<QuestionPage/>}/>
+        <Route path='/askQuestion' element = {currentUser ? <AskNewQuestion/> : <Navigate to='/login'/>}/>
       </Routes>
     </>
   );
