@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../UI/Organisms/Loading";
 
 const StyledMain = styled.main`
     position: relative;
@@ -116,7 +117,7 @@ const QuestionPage = () => {
                         </div>
                         <Link to='/home'><i className="fa-solid fa-chevron-left"></i></Link>
                     </section> :
-                    <h1>Loading...</h1>
+                    <Loading/>
             }
         </StyledMain>
      );
