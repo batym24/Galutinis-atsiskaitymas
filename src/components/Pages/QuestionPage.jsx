@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
+import AnswersContext from "../../contexts/AnswersContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../UI/Organisms/Loading";
+import { useFormik } from "formik";
+import * as yup from 'yup'
+import {v4 as generateId} from 'uuid'
 
 const StyledMain = styled.main`
     position: relative;
@@ -73,6 +77,8 @@ const QuestionPage = () => {
 
     const {currentUser} = useContext(UsersContext)
 
+    const {setAnswers} = useContext(AnswersContext)
+
     const {id} = useParams()
 
     const [question, setQuestion] = useState()
@@ -82,6 +88,32 @@ const QuestionPage = () => {
         .then(res => res.json())
         .then(data => setQuestion(data))
     }, [])
+
+    const values = {
+        answer: ""
+    }
+
+    const validationSchema = yup.object({
+        answer: yup.string()
+        .required("Please write an answer")
+        .min(20, "Answer should be at least 20 symbols")
+        .max(500, "Please make it shorter")
+    })
+
+    const formik = useFormik({
+        initialValues: values,
+        validationSchema: validationSchema,
+        onSubmit: () => {
+            const newAnswer = {
+                id: generateId(),
+                questionId: id,
+                answer: formik.values.answer,
+                answerUpvotes: 0,
+                answerIsUpdated: false
+            }
+            console.log(newAnswer)
+        }
+    })
 
     return ( 
         <StyledMain>
@@ -113,6 +145,28 @@ const QuestionPage = () => {
                             </div>
                             <div>
 
+                            </div>
+                        </div>
+                        <div className="container">
+                            <div className="title">
+                                <h2>Write an answer</h2>
+                            </div>
+                            <div>
+                                <form>
+                                    <textarea 
+                                    name="" 
+                                    id=""
+                                    value={formik.values.answer}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    >
+                                        {
+                                            (formik.touched.answer && formik.errors.answer) && 
+                                            <p>{formik.errors.answer}</p>
+                                        }
+                                    </textarea>
+                                    <input type="submit" value={"Submit your answer"} />
+                                </form>
                             </div>
                         </div>
                         <Link to='/home'><i className="fa-solid fa-chevron-left"></i></Link>
