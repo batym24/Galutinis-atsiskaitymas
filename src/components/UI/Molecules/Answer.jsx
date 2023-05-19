@@ -16,6 +16,7 @@ const StyledDiv = styled.div`
         align-items: center;
         gap: 5px;
         margin: 5px 20px 5px 10px;
+        flex: 2;
 
         img {
             width: 60px;
@@ -25,6 +26,10 @@ const StyledDiv = styled.div`
             font-weight: 900;
             color: #2e8af3;
         }
+    }
+
+    .text {
+        flex: 10;
     }
 `
 
@@ -44,7 +49,7 @@ const Answer = ({answer}) => {
                 <img src={answerUser.avatarUrl} alt="avatar" />
                 <span>{answerUser.username}</span>
             </div>
-            <div>
+            <div className="text">
                 <p>{answer.answer}</p>
             </div>
         </StyledDiv>

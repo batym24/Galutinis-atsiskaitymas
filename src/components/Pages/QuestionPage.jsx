@@ -154,7 +154,6 @@ const QuestionPage = () => {
                 type: ANSWERS_ACTION_TYPE.ADD,
                 data: newAnswer
             })
-            console.log(newAnswer)
         }
     })
 

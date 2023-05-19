@@ -41,6 +41,14 @@
       "answer": "To process incoming messages and set a variable value in a Telegram bot, you can use a library or framework such as python-telegram-bot, which provides an interface to interact with the Telegram Bot API.",
       "answerUpvotes": 0,
       "answerIsUpdated": false
+    },
+    {
+      "id": "a4eb50f5-d98b-4ae0-a8a6-17e9c3bfc8c0",
+      "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
+      "creatorId": 1,
+      "answer": "ffffffffffffffffffffffffffff",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
     }
   ]
 }
