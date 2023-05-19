@@ -4,7 +4,8 @@ const QuestionsContext = createContext()
 
 const QUESTIONS_ACTION_TYPE = {
     GET: 'getAllQuestions',
-    ADD: 'addNewQuestion'
+    ADD: 'addNewQuestion',
+    DELETE: 'deleteQuestion'
 }
 
 const reducer = (state, action) => {
@@ -18,6 +19,10 @@ const reducer = (state, action) => {
                 body: JSON.stringify(action.data)
             })
             return [...state, action.data]
+        case QUESTIONS_ACTION_TYPE.DELETE:
+            fetch(`http://localhost:8080/questions/${action.id}`, {
+                method: "DELETE"
+            })
     }
 }
 

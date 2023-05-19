@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
+import QuestionsContext from "../../contexts/QuestionsContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../UI/Organisms/Loading";
@@ -67,6 +68,13 @@ const StyledMain = styled.main`
         color: black;
         
     }
+
+    .edit {
+        button {
+            display: flex;
+            gap: 10px;
+        }
+    }
 `
 
 const QuestionPage = () => {
@@ -74,6 +82,8 @@ const QuestionPage = () => {
     const {currentUser} = useContext(UsersContext)
 
     const {id} = useParams()
+
+    const {setQuestions, QUESTIONS_ACTION_TYPE} = useContext(QuestionsContext)
 
     const [question, setQuestion] = useState()
 
@@ -93,7 +103,13 @@ const QuestionPage = () => {
                                 <h2>{question.title}</h2>
                                 {   currentUser &&
                                     question.creatorId.toString() === currentUser.id.toString() &&
-                                    <button>Edit Question</button>
+                                    <div className="edit">
+                                        <button>Edit Question</button>
+                                        <button onClick={() => setQuestions({
+                                            type: QUESTIONS_ACTION_TYPE.DELETE,
+                                            id: id
+                                        })}>Delete Question</button>
+                                    </div>
                                 }
                             </div>
                             <div className="question-description">
