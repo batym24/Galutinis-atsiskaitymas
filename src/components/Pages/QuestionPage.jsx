@@ -197,28 +197,31 @@ const QuestionPage = () => {
                                 }
                             </div>
                         </div>
-                        <div className="container">
-                            <div className="title">
-                                <h2>Write an answer</h2>
+                        {
+                            currentUser && 
+                            <div className="container">
+                                <div className="title">
+                                    <h2>Write an answer</h2>
+                                </div>
+                                <div className="new-answer">
+                                    <form>
+                                        <textarea 
+                                        name="" 
+                                        id=""
+                                        value={formik.values.answer}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        >
+                                            {
+                                                (formik.touched.answer && formik.errors.answer) && 
+                                                <p>{formik.errors.answer}</p>
+                                            }
+                                        </textarea>
+                                        <input type="submit" value={"Submit your answer"} />
+                                    </form>
+                                </div>
                             </div>
-                            <div className="new-answer">
-                                <form>
-                                    <textarea 
-                                    name="" 
-                                    id=""
-                                    value={formik.values.answer}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    >
-                                        {
-                                            (formik.touched.answer && formik.errors.answer) && 
-                                            <p>{formik.errors.answer}</p>
-                                        }
-                                    </textarea>
-                                    <input type="submit" value={"Submit your answer"} />
-                                </form>
-                            </div>
-                        </div>
+                        }
                         <Link to='/home'><i className="fa-solid fa-chevron-left"></i></Link>
                     </section> :
                     <Loading/>
