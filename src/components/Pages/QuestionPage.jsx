@@ -115,7 +115,7 @@ const QuestionPage = () => {
 
     const {currentUser} = useContext(UsersContext)
 
-    const {setAnswers, answers,} = useContext(AnswersContext)
+    const {setAnswers, answers, ANSWERS_ACTION_TYPE} = useContext(AnswersContext)
 
     const {id} = useParams()
 
@@ -141,16 +141,18 @@ const QuestionPage = () => {
     const formik = useFormik({
         initialValues: values,
         validationSchema: validationSchema,
-        onSubmit: () => {
+        onSubmit: (values) => {
             const newAnswer = {
                 id: generateId(),
                 questionId: id,
+                creatorId: currentUser.id,
                 answer: formik.values.answer,
                 answerUpvotes: 0,
                 answerIsUpdated: false
             }
             setAnswers({
-                type: ANSWERS_ACTION_TYPE.ADD
+                type: ANSWERS_ACTION_TYPE.ADD,
+                data: newAnswer
             })
             console.log(newAnswer)
         }
@@ -207,10 +209,10 @@ const QuestionPage = () => {
                                     <h2>Write an answer</h2>
                                 </div>
                                 <div className="new-answer">
-                                    <form>
+                                    <form onSubmit={formik.handleSubmit}>
                                         <textarea 
-                                        name="" 
-                                        id=""
+                                        name="answer" 
+                                        id="answer"
                                         value={formik.values.answer}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
