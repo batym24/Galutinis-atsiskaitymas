@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     padding: 20px;
+    position: relative;
 
     .user {
         display: flex;
@@ -31,11 +32,24 @@ const StyledDiv = styled.div`
     .text {
         flex: 10;
     }
+    button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: #0a95ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
 `
 
 const Answer = ({answer}) => {
 
-    const {users} = useContext(UsersContext)
+    const {users, currentUser} = useContext(UsersContext)
 
     const answerUser = users.find((user) => user.id.toString() === answer.creatorId.toString());
 
@@ -52,6 +66,10 @@ const Answer = ({answer}) => {
             <div className="text">
                 <p>{answer.answer}</p>
             </div>
+            {   currentUser &&
+                currentUser.id.toString() === answer.creatorId.toString() &&
+                <button>Delete</button>
+            }
         </StyledDiv>
      );
 }

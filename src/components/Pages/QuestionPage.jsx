@@ -135,13 +135,13 @@ const QuestionPage = () => {
         answer: yup.string()
         .required("Please write an answer")
         .min(20, "Answer should be at least 20 symbols")
-        .max(500, "Please make it shorter")
+        .max(1000, "Please make it shorter")
     })
 
     const formik = useFormik({
         initialValues: values,
         validationSchema: validationSchema,
-        onSubmit: (values) => {
+        onSubmit: ({resetForm}) => {
             const newAnswer = {
                 id: generateId(),
                 questionId: id,
@@ -154,6 +154,7 @@ const QuestionPage = () => {
                 type: ANSWERS_ACTION_TYPE.ADD,
                 data: newAnswer
             })
+            formik.resetForm()
         }
     })
 
@@ -194,9 +195,6 @@ const QuestionPage = () => {
                                                 answer={answer}
                                             />
                                         }
-                                        else {
-                                            return <p>There is no answers yet</p>
-                                        }
                                     })
                                 }
                             </div>
@@ -215,12 +213,11 @@ const QuestionPage = () => {
                                         value={formik.values.answer}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        >
+                                        />
                                             {
                                                 (formik.touched.answer && formik.errors.answer) && 
                                                 <p>{formik.errors.answer}</p>
                                             }
-                                        </textarea>
                                         <input type="submit" value={"Submit your answer"} />
                                     </form>
                                 </div>
