@@ -83,7 +83,7 @@ const QuestionPage = () => {
 
     const {id} = useParams()
 
-    const {setQuestions, QUESTIONS_ACTION_TYPE} = useContext(QuestionsContext)
+    const {setQuestions, QUESTIONS_ACTION_TYPE, questions} = useContext(QuestionsContext)
 
     const [question, setQuestion] = useState()
 
@@ -92,6 +92,20 @@ const QuestionPage = () => {
         .then(res => res.json())
         .then(data => setQuestion(data))
     }, [])
+
+    const handleUpvote = () => {
+        setQuestions({
+            type: QUESTIONS_ACTION_TYPE.UPVOTE,
+            id: id
+        })
+    }
+    const handleDownvote = () => {
+        setQuestions({
+            type: QUESTIONS_ACTION_TYPE.DOWNVOTE,
+            id: id
+        })
+    }
+    
 
     return ( 
         <StyledMain>
@@ -105,18 +119,20 @@ const QuestionPage = () => {
                                     question.creatorId.toString() === currentUser.id.toString() &&
                                     <div className="edit">
                                         <button>Edit Question</button>
-                                        <button onClick={() => setQuestions({
-                                            type: QUESTIONS_ACTION_TYPE.DELETE,
-                                            id: id
-                                        })}>Delete Question</button>
+                                        <button onClick={handleUpvote}>Delete Question</button>
                                     </div>
                                 }
                             </div>
                             <div className="question-description">
                                 <div className="upvotes">
-                                    <i className="fa-solid fa-arrow-up"></i>
-                                    <span>{question.questionUpvotes}</span>
-                                    <i className="fa-solid fa-arrow-down"></i>
+                                    <i className="fa-solid fa-arrow-up" onClick={() => handleUpvote()}></i>
+                                    <span>
+                                        {
+                                            questions && 
+                                            questions.find(question => question.id.toString() === id.toString()).questionUpvotes
+                                        }
+                                    </span>
+                                    <i className="fa-solid fa-arrow-down" onClick={handleDownvote}></i>
                                 </div>
                                 <div className="description">
                                     <p>{question.description}</p>
