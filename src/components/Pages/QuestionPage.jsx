@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
+import QuestionsContext from "../../contexts/QuestionsContext";
 import AnswersContext from "../../contexts/AnswersContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -17,7 +18,6 @@ const StyledMain = styled.main`
         
         height: calc(100vh - 100px);
     }
-
     .container {
         width: 90vw;
         margin: 20px auto;
@@ -73,6 +73,12 @@ const StyledMain = styled.main`
         
     }
 
+
+    .edit {
+        button {
+            display: flex;
+            gap: 10px;
+
     .new-answer {
         padding: 30px 30px 0 30px;
 
@@ -103,7 +109,6 @@ const StyledMain = styled.main`
             }
         }
     }
-
     .answer {
         p {
             padding: 20px;
@@ -118,6 +123,8 @@ const QuestionPage = () => {
     const {setAnswers, answers, ANSWERS_ACTION_TYPE} = useContext(AnswersContext)
 
     const {id} = useParams()
+
+    const {setQuestions, QUESTIONS_ACTION_TYPE} = useContext(QuestionsContext)
 
     const [question, setQuestion] = useState()
 
@@ -168,7 +175,13 @@ const QuestionPage = () => {
                                 <h2>{question.title}</h2>
                                 {   currentUser &&
                                     question.creatorId.toString() === currentUser.id.toString() &&
-                                    <button>Edit Question</button>
+                                    <div className="edit">
+                                        <button>Edit Question</button>
+                                        <button onClick={() => setQuestions({
+                                            type: QUESTIONS_ACTION_TYPE.DELETE,
+                                            id: id
+                                        })}>Delete Question</button>
+                                    </div>
                                 }
                             </div>
                             <div className="question-description">
