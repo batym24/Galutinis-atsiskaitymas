@@ -17,7 +17,8 @@ const reducer = (state, action) => {
                 body: JSON.stringify(action.data)
             })
             return [...state, action.data]
-        
+        default:
+            return state
     }
 }
 
@@ -38,7 +39,6 @@ const UsersProvider = ({children}) => {
         }))
     }, [])
 
-    console.log(users)
 
     return ( 
         <UsersContext.Provider

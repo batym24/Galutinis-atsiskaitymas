@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import QuestionsContext from "../../contexts/QuestionsContext";
+import AnswersContext from "../../contexts/AnswersContext";
 import Question from "../UI/Molecules/Question";
 import { Link } from "react-router-dom";
 
@@ -61,6 +62,7 @@ const StyledMain = styled.main`
 const Home = () => {
 
     const {questions} = useContext(QuestionsContext)
+    const {answers} = useContext(AnswersContext)
 
     return ( 
         <StyledMain>
@@ -76,11 +78,15 @@ const Home = () => {
                 </div>
                 <div className="questions">
                     {
-                        questions.map(question => 
-                            <Question 
+                        questions.map(question => {
+                            const questionAnswers = answers.filter(answer => answer.questionId.toString() === question.id.toString())
+                            return (<Question 
                                 key={question.id}
                                 question = {question}
+                                questionAnswers = {questionAnswers}
                             />)
+                        }
+                            )
                     }
                 </div>
 

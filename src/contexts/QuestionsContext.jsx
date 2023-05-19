@@ -53,6 +53,8 @@ const reducer = (state, action) => {
                     return question
                 }
             })
+        default:
+            return state
     }
 }
 
