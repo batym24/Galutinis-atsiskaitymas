@@ -46,15 +46,17 @@ const StyledDiv = styled.div`
         width: 100px;
     }
 `
-const Question = ({question}) => {
-
+const Question = ({question, questionAnswers}) => {
+    
     const {users} = useContext(UsersContext)
+
+    console.log(questionAnswers)
 
     return ( 
         <StyledDiv>
             <div className="votes-answers">
                 <span>{question.questionUpvotes} Votes</span>
-                <span>Answers</span>
+                <span>{[...questionAnswers].length} Answers</span>
             </div>
             <div className="question-title">
                 <Link to={`/question/${question.id}`}><h3>{question.title}</h3></Link>

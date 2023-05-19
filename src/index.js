@@ -5,17 +5,20 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { UsersProvider } from './contexts/UsersContext';
 import { QuestionsProvider } from './contexts/QuestionsContext';
+import { AnswersProvider } from './contexts/AnswersContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <QuestionsProvider>
-    <UsersProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </UsersProvider>
-  </QuestionsProvider>
+  <AnswersProvider>
+    <QuestionsProvider>
+      <UsersProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UsersProvider>
+    </QuestionsProvider>
+  </AnswersProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

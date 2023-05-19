@@ -23,6 +23,8 @@ const reducer = (state, action) => {
             fetch(`http://localhost:8080/questions/${action.id}`, {
                 method: "DELETE"
             })
+        default:
+            return state
     }
 }
 
@@ -39,7 +41,6 @@ const QuestionsProvider = ({children}) => {
         }))
     }, [])
 
-    console.log(questions)
 
     return ( 
         <QuestionsContext.Provider

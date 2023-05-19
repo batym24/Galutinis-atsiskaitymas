@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UsersContext from "../../../contexts/UsersContext";
 
 const StyledHeader = styled.header`
     display: flex;
@@ -52,18 +54,53 @@ const StyledHeader = styled.header`
             background-color: #056fc0;
         }
 
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            padding: 10px;
+            background-color: #ececec;
+
+            img {
+                width: 40px;
+            }
+
+            button {
+                background-color: #0a95ff;
+                color: white;
+                border-radius: 3px;
+                border: none;
+            }
+        }
+
+
     }
 `
 
 const Header = () => {
+
+    const {currentUser, setCurrentUser} = useContext(UsersContext)
+
     return ( 
         <StyledHeader>
             <div className="logo">
                 <Link to="/home"><img src="https://www.vectorlogo.zone/logos/stackoverflow/stackoverflow-ar21.png" alt="logo" /></Link>
             </div>
             <div className="register-login">
-                <Link to='/login'><button className="login">Login</button></Link>
-                <Link to='/register'><button className="register">Register</button></Link>
+                {
+                    currentUser ?
+                    <div className="user">
+                        <img src= {currentUser.avatarUrl} alt="avatar" />
+                        <span>{currentUser.username}</span>
+                        <button onClick={() => setCurrentUser(false)}>Log Out</button>
+                    </div> :
+                    <>
+                        <Link to='/login'><button className="login">Login</button></Link>
+                        <Link to='/register'><button className="register">Register</button></Link>
+                    </>
+                }
             </div>
         </StyledHeader>
      );
