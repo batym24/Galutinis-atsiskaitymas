@@ -115,7 +115,7 @@ const QuestionPage = () => {
 
     const {currentUser} = useContext(UsersContext)
 
-    const {setAnswers, answers} = useContext(AnswersContext)
+    const {setAnswers, answers, ANSWERS_ACTION_TYPE} = useContext(AnswersContext)
 
     const {id} = useParams()
 
@@ -135,21 +135,26 @@ const QuestionPage = () => {
         answer: yup.string()
         .required("Please write an answer")
         .min(20, "Answer should be at least 20 symbols")
-        .max(500, "Please make it shorter")
+        .max(1000, "Please make it shorter")
     })
 
     const formik = useFormik({
         initialValues: values,
         validationSchema: validationSchema,
-        onSubmit: () => {
+        onSubmit: ({resetForm}) => {
             const newAnswer = {
                 id: generateId(),
                 questionId: id,
+                creatorId: currentUser.id,
                 answer: formik.values.answer,
                 answerUpvotes: 0,
                 answerIsUpdated: false
             }
-            console.log(newAnswer)
+            setAnswers({
+                type: ANSWERS_ACTION_TYPE.ADD,
+                data: newAnswer
+            })
+            formik.resetForm()
         }
     })
 
@@ -190,35 +195,34 @@ const QuestionPage = () => {
                                                 answer={answer}
                                             />
                                         }
-                                        else {
-                                            return <p>There is no answers yet</p>
-                                        }
                                     })
                                 }
                             </div>
                         </div>
-                        <div className="container">
-                            <div className="title">
-                                <h2>Write an answer</h2>
+                        {
+                            currentUser && 
+                            <div className="container">
+                                <div className="title">
+                                    <h2>Write an answer</h2>
+                                </div>
+                                <div className="new-answer">
+                                    <form onSubmit={formik.handleSubmit}>
+                                        <textarea 
+                                        name="answer" 
+                                        id="answer"
+                                        value={formik.values.answer}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        />
+                                            {
+                                                (formik.touched.answer && formik.errors.answer) && 
+                                                <p>{formik.errors.answer}</p>
+                                            }
+                                        <input type="submit" value={"Submit your answer"} />
+                                    </form>
+                                </div>
                             </div>
-                            <div className="new-answer">
-                                <form>
-                                    <textarea 
-                                    name="" 
-                                    id=""
-                                    value={formik.values.answer}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    >
-                                        {
-                                            (formik.touched.answer && formik.errors.answer) && 
-                                            <p>{formik.errors.answer}</p>
-                                        }
-                                    </textarea>
-                                    <input type="submit" value={"Submit your answer"} />
-                                </form>
-                            </div>
-                        </div>
+                        }
                         <Link to='/home'><i className="fa-solid fa-chevron-left"></i></Link>
                     </section> :
                     <Loading/>
