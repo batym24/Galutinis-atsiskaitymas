@@ -78,7 +78,8 @@ const StyledMain = styled.main`
         button {
             display: flex;
             gap: 10px;
-
+        }
+    }
     .new-answer {
         padding: 30px 30px 0 30px;
 
