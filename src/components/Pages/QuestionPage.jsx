@@ -115,7 +115,7 @@ const QuestionPage = () => {
 
     const {currentUser} = useContext(UsersContext)
 
-    const {setAnswers, answers} = useContext(AnswersContext)
+    const {setAnswers, answers,} = useContext(AnswersContext)
 
     const {id} = useParams()
 
@@ -149,6 +149,9 @@ const QuestionPage = () => {
                 answerUpvotes: 0,
                 answerIsUpdated: false
             }
+            setAnswers({
+                type: ANSWERS_ACTION_TYPE.ADD
+            })
             console.log(newAnswer)
         }
     })
