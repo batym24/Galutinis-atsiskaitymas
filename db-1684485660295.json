@@ -21,7 +21,7 @@
       "creatorId": 1,
       "title": "How to set a variable value on receiving a message in telegram bot",
       "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work.",
-      "questionUpvotes": 24,
+      "questionUpvotes": 0,
       "QuestionIsUpdated": false
     },
     {
@@ -29,7 +29,7 @@
       "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
       "title": "How TO - Disable Resizing of Textarea",
       "description": "Disable Resizing of Textarea\n\nYou can use the resize property to specify whether a textarea should be resizable or not:\nExample:\ntextarea {\n  resize: none;\n} ",
-      "questionUpvotes": 11,
+      "questionUpvotes": 0,
       "QuestionIsUpdated": false
     },
     {

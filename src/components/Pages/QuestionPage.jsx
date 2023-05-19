@@ -46,6 +46,7 @@ const StyledMain = styled.main`
       border-bottom: 1px solid gray;
       padding: 20px 30px;
 
+
       button {
         background-color: #0a95ff;
         color: white;
@@ -70,6 +71,14 @@ const StyledMain = styled.main`
     font-size: 2rem;
     color: black;
   }
+    .edit {
+        button {
+            display: flex;
+            gap: 10px;
+        }
+    }
+    .new-answer {
+        padding: 30px 30px 0 30px;
 
   .edit {
     button {
