@@ -124,16 +124,21 @@ const QuestionPage = () => {
                                 }
                             </div>
                             <div className="question-description">
-                                <div className="upvotes">
-                                    <i className="fa-solid fa-arrow-up" onClick={() => handleUpvote()}></i>
-                                    <span>
-                                        {
-                                            questions && 
-                                            questions.find(question => question.id.toString() === id.toString()).questionUpvotes
-                                        }
-                                    </span>
-                                    <i className="fa-solid fa-arrow-down" onClick={handleDownvote}></i>
-                                </div>
+                            <div className="upvotes">
+                                    {
+                                        currentUser &&
+                                        <>
+                                            <i className="fa-solid fa-arrow-up" onClick={() => handleUpvote()}></i>
+                                            <span>
+                                                {
+                                                    questions && 
+                                                    questions.find(question => question.id.toString() === id.toString()).questionUpvotes
+                                                }
+                                            </span>
+                                            <i className="fa-solid fa-arrow-down" onClick={handleDownvote}></i>
+                                        </>
+                                    }
+                            </div>
                                 <div className="description">
                                     <p>{question.description}</p>
                                 </div>
