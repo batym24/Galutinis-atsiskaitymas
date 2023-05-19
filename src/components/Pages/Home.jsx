@@ -79,7 +79,7 @@ const Home = () => {
                 <div className="questions">
                     {
                         questions.map(question => {
-                            const questionAnswers = answers.filter(answer => answer.questionId === question.id)
+                            const questionAnswers = answers.filter(answer => answer.questionId.toString() === question.id.toString())
                             return (<Question 
                                 key={question.id}
                                 question = {question}

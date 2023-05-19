@@ -4,7 +4,8 @@ const AnswersContext = createContext()
 
 const ANSWERS_ACTION_TYPE = {
     GET: 'getAllAnswers',
-    ADD: 'addNewAnser'
+    ADD: 'addNewAnser',
+    DELETE: 'deleteAnswer'
 }
 
 const reducer = (state,action) => {
@@ -18,6 +19,11 @@ const reducer = (state,action) => {
                 body: JSON.stringify(action.data)
             })
             return [...state, action.data]
+        case ANSWERS_ACTION_TYPE.DELETE:
+            fetch(`http://localhost:8080/answers/${action.id}`, {
+                method: "DELETE"
+            })
+            return state.filter(answer => answer.id.toString() !== action.id)
         default:
             return state
     }

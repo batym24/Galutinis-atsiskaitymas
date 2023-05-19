@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import UsersContext from "../../../contexts/UsersContext";
+import AnswersContext from "../../../contexts/AnswersContext";
 
 
 const StyledDiv = styled.div`
@@ -51,6 +52,8 @@ const Answer = ({answer}) => {
 
     const {users, currentUser} = useContext(UsersContext)
 
+    const {setAnswers, ANSWERS_ACTION_TYPE} = useContext(AnswersContext)
+
     const answerUser = users.find((user) => user.id.toString() === answer.creatorId.toString());
 
       if (!answerUser) {
@@ -68,7 +71,10 @@ const Answer = ({answer}) => {
             </div>
             {   currentUser &&
                 currentUser.id.toString() === answer.creatorId.toString() &&
-                <button>Delete</button>
+                <button onClick={() => setAnswers({
+                    type: ANSWERS_ACTION_TYPE.DELETE,
+                    id: answer.id
+                })}>Delete</button>
             }
         </StyledDiv>
      );
