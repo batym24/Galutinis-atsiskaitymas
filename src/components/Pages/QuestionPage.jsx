@@ -53,8 +53,8 @@ const StyledMain = styled.main`
         border: none;
         border-radius: 5px;
         border-top: 1px solid #6cc0ff;
-        padding: 15px;
-        font-size: 1rem;
+        padding: 10px;
+        font-size: 0.8rem;
         font-weight: 600;
         cursor: pointer;
       }
@@ -197,8 +197,8 @@ const QuestionPage = () => {
                                 {   currentUser &&
                                     question.creatorId.toString() === currentUser.id.toString() &&
                                     <div className="edit">
-                                        <button>Edit Question</button>
-                                        <button onClick={handleUpvote}>Delete Question</button>
+                                        <Link to={`/editQuestion/${id}`}><button>Edit Question</button></Link>
+                                        <button>Delete Question</button>
                                     </div>
                                 }
                             </div>
@@ -207,7 +207,7 @@ const QuestionPage = () => {
                                     {
                                         currentUser &&
                                         <>
-                                            <i className="fa-solid fa-arrow-up" onClick={() => handleUpvote()}></i>
+                                            <i className="fa-solid fa-arrow-up" onClick={handleUpvote}></i>
                                             <span>
                                                 {
                                                     questions && 
