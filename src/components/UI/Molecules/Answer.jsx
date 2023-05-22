@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useContext } from "react";
 import UsersContext from "../../../contexts/UsersContext";
 import AnswersContext from "../../../contexts/AnswersContext";
+import { Link } from "react-router-dom";
+
 
 
 const StyledDiv = styled.div`
@@ -34,17 +36,34 @@ const StyledDiv = styled.div`
         flex: 10;
     }
     button {
-        position: absolute;
-        right: 10px;
-        top: 10px;
         background-color: #0a95ff;
         color: white;
         border: none;
         border-radius: 5px;
-        padding: 5px;
+        padding: 5px 10px;
         font-size: 0.8rem;
         font-weight: 600;
         cursor: pointer;
+    }
+
+    .delete {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .update {
+        position: absolute;
+        right: 75px;
+        top: 10px;
+    }
+    
+    .date {
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        font-style: italic;
+        font-size: 0.8rem;
     }
 `
 
@@ -71,10 +90,18 @@ const Answer = ({answer}) => {
             </div>
             {   currentUser &&
                 currentUser.id.toString() === answer.creatorId.toString() &&
-                <button onClick={() => setAnswers({
+                <>
+                <button className="delete" onClick={() => setAnswers({
                     type: ANSWERS_ACTION_TYPE.DELETE,
                     id: answer.id
                 })}>Delete</button>
+                <Link to={`/editAnswer/${answer.id}`}><button className="update">Edit</button></Link>
+                {
+                    answer.answerIsUpdated &&
+                    <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 10)}</span>
+                }
+                </>
+                
             }
         </StyledDiv>
      );
