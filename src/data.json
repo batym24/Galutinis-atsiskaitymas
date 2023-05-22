@@ -19,18 +19,18 @@
     {
       "id": 1,
       "creatorId": 1,
-      "title": "How to set a variable value on receiving a message in telegram bot",
-      "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work.",
-      "questionUpvotes": 26,
-      "QuestionIsUpdated": false
+      "title": "How to set a variable value on receiving a message in telegram bot, test",
+      "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work. TEST",
+      "questionUpvotes": 29,
+      "QuestionIsUpdated": true
     },
     {
       "id": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
       "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
       "title": "How TO - Disable Resizing of Textarea",
-      "description": "Disable Resizing of Textarea\n\nYou can use the resize property to specify whether a textarea should be resizable or not:\nExample:\ntextarea {\n  resize: none;\n} ",
+      "description": "In the CSS code, the resize property is set to none, which prevents the textarea from being resized by the user. This means that the textarea will have a fixed size and the user won't be able to drag its edges to resize it.\n\nYou can adjust the rows and cols attributes of the <textarea> element to specify the initial number of visible rows and columns for the textarea.",
       "questionUpvotes": 11,
-      "QuestionIsUpdated": false
+      "QuestionIsUpdated": "2023-05-22T08:35:56.213Z"
     },
     {
       "id": "bb143ab7-d303-497d-9d3a-a40c50452577",
