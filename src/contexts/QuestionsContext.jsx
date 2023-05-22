@@ -61,7 +61,7 @@ const reducer = (state, action) => {
                 body: JSON.stringify(action.data)
             })
             return state.map(question => {
-                if(question.id === action.id){
+                if(question.id.toString() === action.id.toString()){
                     return {
                         ...question,
                         title: action.data.title,

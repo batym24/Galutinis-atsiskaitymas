@@ -193,7 +193,7 @@ const QuestionPage = () => {
                     <section>
                         <div className="container">
                             <div className="title">
-                                <h2>{question.title}</h2>
+                                <h2>{questions.find(question => question.id.toString() === id.toString()).title}</h2>
                                 {   currentUser &&
                                     question.creatorId.toString() === currentUser.id.toString() &&
                                     <div className="edit">
@@ -219,7 +219,7 @@ const QuestionPage = () => {
                                     }
                             </div>
                                 <div className="description">
-                                    <p>{question.description}</p>
+                                    <p>{questions.find(question => question.id.toString() === id.toString()).description}</p>
                                 </div>
                             </div>
                         </div>
