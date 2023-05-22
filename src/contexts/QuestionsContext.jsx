@@ -4,7 +4,11 @@ const QuestionsContext = createContext()
 
 const QUESTIONS_ACTION_TYPE = {
     GET: 'getAllQuestions',
-    ADD: 'addNewQuestion'
+    ADD: 'addNewQuestion',
+    DELETE: 'deleteQuestion',
+    UPVOTE: 'upvote',
+    DOWNVOTE: 'downvote',
+    EDIT: 'editQuestion'
 }
 
 const reducer = (state, action) => {
@@ -18,6 +22,56 @@ const reducer = (state, action) => {
                 body: JSON.stringify(action.data)
             })
             return [...state, action.data]
+        case QUESTIONS_ACTION_TYPE.DELETE:
+            fetch(`http://localhost:8080/questions/${action.id}`, {
+                method: "DELETE"
+            })
+        case QUESTIONS_ACTION_TYPE.UPVOTE:
+            return state.map(question => {
+                if (question.id.toString() === action.id.toString()){
+                    fetch(`http://localhost:8080/questions/${action.id}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({questionUpvotes: question.questionUpvotes + 1})
+                })
+                    return {...question, questionUpvotes: question.questionUpvotes + 1}
+                }
+                else {
+                    return question
+                }
+            })
+        case QUESTIONS_ACTION_TYPE.DOWNVOTE:
+            return state.map(question => {
+                if (question.id.toString() === action.id.toString()){
+                    fetch(`http://localhost:8080/questions/${action.id}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({questionUpvotes: question.questionUpvotes - 1})
+                })
+                    return {...question, questionUpvotes: question.questionUpvotes - 1}
+                }
+                else {
+                    return question
+                }
+            })
+        case QUESTIONS_ACTION_TYPE.EDIT:
+            fetch(`http://localhost:8080/questions/${action.id}`, {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(action.data)
+            })
+            return state.map(question => {
+                if(question.id.toString() === action.id.toString()){
+                    return {
+                        ...question,
+                        title: action.data.title,
+                        description: action.data.description
+                    }
+                }
+                else{
+                    return question
+                }
+            })
         default:
             return state
     }
