@@ -35,7 +35,8 @@ const reducer = (state,action) => {
                 if(answer.id.toString() === action.id.toString()){
                     return {
                         ...answer,
-                        answer: action.data.answer
+                        answer: action.data.answer,
+                        answerIsUpdated: new Date().toString()
                     }
                 }
                 else {

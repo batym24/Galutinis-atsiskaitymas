@@ -96,12 +96,11 @@ const Answer = ({answer}) => {
                     id: answer.id
                 })}>Delete</button>
                 <Link to={`/editAnswer/${answer.id}`}><button className="update">Edit</button></Link>
-                {
-                    answer.answerIsUpdated &&
-                    <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 10)}</span>
-                }
                 </>
-                
+            }
+            {
+                answer.answerIsUpdated &&
+                <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 15)}</span>
             }
         </StyledDiv>
      );
