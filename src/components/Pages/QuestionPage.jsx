@@ -22,6 +22,7 @@ const StyledMain = styled.main`
     margin: 20px auto;
     border: 3px solid gray;
     background-color: white;
+    position: relative;
 
     .question-description {
       display: flex;
@@ -34,6 +35,20 @@ const StyledMain = styled.main`
         flex-direction: column;
         gap: 3px;
         flex: 1;
+
+        span {
+            font-weight: 900;
+        }
+
+        i {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #e07f26;
+            transition: 0.05s
+        }
+        i:hover {
+            transform: scale(1.05);
+        }
       }
       .description {
         flex: 15;
@@ -121,18 +136,21 @@ const StyledMain = styled.main`
       padding: 20px;
     }
   }
+
+  .date{
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-style: italic;
+    font-size: 0.8rem;
+  }
 `;
 
 const QuestionPage = () => {
-
     const {currentUser} = useContext(UsersContext)
-
     const {setAnswers, answers, ANSWERS_ACTION_TYPE} = useContext(AnswersContext)
-
     const {id} = useParams()
-
     const {setQuestions, QUESTIONS_ACTION_TYPE, questions} = useContext(QuestionsContext)
-
     const [question, setQuestion] = useState()
 
     useEffect(() => {
@@ -200,6 +218,10 @@ const QuestionPage = () => {
                                         <Link to={`/editQuestion/${id}`}><button>Edit Question</button></Link>
                                         <button>Delete Question</button>
                                     </div>
+                                }
+                                {
+                                    question.QuestionIsUpdated && 
+                                    <span className="date">Updated on: {question.QuestionIsUpdated.slice(0, 10)}</span>
                                 }
                             </div>
                             <div className="question-description">
