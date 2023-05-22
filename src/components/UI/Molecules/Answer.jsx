@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useContext } from "react";
 import UsersContext from "../../../contexts/UsersContext";
 import AnswersContext from "../../../contexts/AnswersContext";
+import { Link } from "react-router-dom";
+
 
 
 const StyledDiv = styled.div`
@@ -71,10 +73,14 @@ const Answer = ({answer}) => {
             </div>
             {   currentUser &&
                 currentUser.id.toString() === answer.creatorId.toString() &&
+                <>
                 <button onClick={() => setAnswers({
                     type: ANSWERS_ACTION_TYPE.DELETE,
                     id: answer.id
                 })}>Delete</button>
+                <Link to={`/editAnswer`}></Link><button>Edit</button>
+                </>
+                
             }
         </StyledDiv>
      );
