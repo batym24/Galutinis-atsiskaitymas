@@ -97,7 +97,6 @@ const Answer = ({answer}) => {
                 })}>Delete</button>
                 <Link to={`/editAnswer/${answer.id}`}><button className="update">Edit</button></Link>
                 </>
-                
             }
             {
                 answer.answerIsUpdated &&
