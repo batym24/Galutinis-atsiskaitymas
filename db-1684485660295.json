@@ -20,17 +20,17 @@
       "id": 1,
       "creatorId": 1,
       "title": "How to set a variable value on receiving a message in telegram bot",
-      "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work. ",
-      "questionUpvotes": 29,
-      "QuestionIsUpdated": "2023-05-22T11:05:15.372Z"
+      "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work.",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
     },
     {
       "id": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
       "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
       "title": "How TO - Disable Resizing of Textarea",
-      "description": "In the CSS code, the resize property is set to none, which prevents the textarea from being resized by the user. This means that the textarea will have a fixed size and the user won't be able to drag its edges to resize it.\n\nYou can adjust the rows and cols attributes of the <textarea> element to specify the initial number of visible rows and columns for the textarea.",
-      "questionUpvotes": 11,
-      "QuestionIsUpdated": "2023-05-22T08:35:56.213Z"
+      "description": "Disable Resizing of Textarea\n\nYou can use the resize property to specify whether a textarea should be resizable or not:\nExample:\ntextarea {\n  resize: none;\n} ",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
     },
     {
       "id": "bb143ab7-d303-497d-9d3a-a40c50452577",
@@ -46,9 +46,9 @@
       "id": 1,
       "questionId": 1,
       "creatorId": 1,
-      "answer": "99999999999999999999999999999999999999",
+      "answer": "To process incoming messages and set a variable value in a Telegram bot, you can use a library or framework such as python-telegram-bot, which provides an interface to interact with the Telegram Bot API.",
       "answerUpvotes": 0,
-      "answerIsUpdated": "2023-05-22T12:19:16.709Z"
+      "answerIsUpdated": false
     },
     {
       "id": "e4a60916-3334-41b7-a040-af587b4d5692",
@@ -67,25 +67,6 @@
       "answerIsUpdated": false
     },
     {
-
-      "id": "05e5f240-a4a6-4c19-b678-c71b0ffe3e18",
-      "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
-      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
-      "answer": "77777777777777777777777777777777777777777777",
-      "answerUpvotes": 0,
-      "answerIsUpdated": "2023-05-22T10:43:20.251Z"
-    },
-    {
-      "id": "9ea1ebaf-115e-413e-bd00-3be6194608dd",
-      "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
-      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
-      "answer": "5455555555555555555555555555555555555555555555555",
-      "answerUpvotes": 0,
-      "answerIsUpdated": "2023-05-22T10:43:32.590Z"
-    },
-    {
-
-
       "id": "57b0937c-c31c-4b76-bef0-44cdcc935dc0",
       "questionId": "bb143ab7-d303-497d-9d3a-a40c50452577",
       "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
@@ -116,14 +97,6 @@
       "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
       "answerUpvotes": 0,
       "answerIsUpdated": false
-    },
-    {
-      "id": "cfa71a94-97bc-41cc-b3b1-9f3158315dea",
-      "questionId": "1",
-      "creatorId": 1,
-      "answer": "222222222222222222222222222222222222222222",
-      "answerUpvotes": 0,
-      "answerIsUpdated": "2023-05-22T12:14:56.568Z"
     }
   ]
 }
