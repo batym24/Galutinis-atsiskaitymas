@@ -98,7 +98,7 @@ const Answer = ({answer}) => {
                 <Link to={`/editAnswer/${answer.id}`}><button className="update">Edit</button></Link>
                 {
                     answer.answerIsUpdated &&
-                    <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 10)}</span>
+                    <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 15)}</span>
                 }
                 </>
                 
