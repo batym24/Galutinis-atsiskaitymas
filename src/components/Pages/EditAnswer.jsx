@@ -111,7 +111,7 @@ const EditAnswer = () => {
                 data: updatedAnswer,
                 id: id
             })
-            navigate(`/question/${question.questionId}`)
+            navigate(`/question/${answer.questionId}`)
         }
     })
 

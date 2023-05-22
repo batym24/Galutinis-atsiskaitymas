@@ -5,7 +5,8 @@ const AnswersContext = createContext()
 const ANSWERS_ACTION_TYPE = {
     GET: 'getAllAnswers',
     ADD: 'addNewAnser',
-    DELETE: 'deleteAnswer'
+    DELETE: 'deleteAnswer',
+    EDIT: 'editAnswer'
 }
 
 const reducer = (state,action) => {
@@ -24,6 +25,23 @@ const reducer = (state,action) => {
                 method: "DELETE"
             })
             return state.filter(answer => answer.id.toString() !== action.id)
+        case ANSWERS_ACTION_TYPE.EDIT:
+            fetch(`http://localhost:8080/answers/${action.id}`, {
+                method: "PATCH",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(action.data)
+            })
+            return state.map(answer => {
+                if(answer.id.toString() === action.id.toString()){
+                    return {
+                        ...answer,
+                        answer: action.data.answer
+                    }
+                }
+                else {
+                    return answer
+                }
+            })
         default:
             return state
     }
