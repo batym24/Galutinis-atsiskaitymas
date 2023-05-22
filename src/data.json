@@ -21,7 +21,7 @@
       "creatorId": 1,
       "title": "How to set a variable value on receiving a message in telegram bot",
       "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work.",
-      "questionUpvotes": 24,
+      "questionUpvotes": 26,
       "QuestionIsUpdated": false
     },
     {
@@ -37,7 +37,7 @@
       "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
       "title": "What is the significance of the Great Wall of China?",
       "description": "The Great Wall of China is an ancient architectural marvel that holds immense historical, cultural, and strategic significance. It was primarily built as a defense system to protect China from invasions and raids by nomadic tribes from the north, such as the Mongols and Xiongnu. Stretching over 13,000 miles (21,196 kilometers), it is considered the world's longest wall. ",
-      "questionUpvotes": 0,
+      "questionUpvotes": 1,
       "QuestionIsUpdated": false
     }
   ],
@@ -95,6 +95,14 @@
       "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
       "creatorId": 1,
       "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "283acb7f-e2a2-421c-adcf-f51bafd003c0",
+      "questionId": "1",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "While there are various libraries available to create a Telegram bot, we’ll use the pyTelegramBotAPI library. It is a simple but extensible Python implementation for the Telegram Bot API with both synchronous and asynchronous capabilities.",
       "answerUpvotes": 0,
       "answerIsUpdated": false
     }
