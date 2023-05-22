@@ -79,7 +79,7 @@ const StyledMain = styled.main`
     }
     .new-answer {
         padding: 30px 30px 0 30px;
-
+    }
   .edit {
     button {
       display: flex;
