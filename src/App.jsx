@@ -24,7 +24,7 @@ const App = () => {
         <Route path='/question/:id' element={<QuestionPage/>}/>
         <Route path='/askQuestion' element = {currentUser ? <AskNewQuestion/> : <Navigate to='/login'/>}/>
 
-        <Route path='/editAnswer/id' element= {<EditAnswer/>}/>
+        <Route path='/editAnswer/:id' element= {<EditAnswer/>}/>
       </Routes>
     </>
   );

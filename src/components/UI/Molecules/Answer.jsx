@@ -36,18 +36,28 @@ const StyledDiv = styled.div`
         flex: 10;
     }
     button {
-        position: absolute;
-        right: 10px;
-        top: 10px;
         background-color: #0a95ff;
         color: white;
         border: none;
         border-radius: 5px;
-        padding: 5px;
+        padding: 5px 10px;
         font-size: 0.8rem;
         font-weight: 600;
         cursor: pointer;
     }
+
+    .delete {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .update {
+        position: absolute;
+        right: 75px;
+        top: 10px;
+    }
+    
 `
 
 const Answer = ({answer}) => {
@@ -74,11 +84,11 @@ const Answer = ({answer}) => {
             {   currentUser &&
                 currentUser.id.toString() === answer.creatorId.toString() &&
                 <>
-                <button onClick={() => setAnswers({
+                <button className="delete" onClick={() => setAnswers({
                     type: ANSWERS_ACTION_TYPE.DELETE,
                     id: answer.id
                 })}>Delete</button>
-                <Link to={`/editAnswer`}></Link><button>Edit</button>
+                <Link to={`/editAnswer/${answer.id}`}><button className="update">Edit</button></Link>
                 </>
                 
             }
