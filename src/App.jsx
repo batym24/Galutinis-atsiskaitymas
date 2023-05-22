@@ -8,6 +8,7 @@ import QuestionPage from './components/Pages/QuestionPage';
 import UsersContext from './contexts/UsersContext';
 import { useContext } from 'react';
 import AskNewQuestion from './components/Pages/AskNewQuestion';
+import EditQuestion from './components/Pages/EditQuestion';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/question/:id' element={<QuestionPage/>}/>
         <Route path='/askQuestion' element = {currentUser ? <AskNewQuestion/> : <Navigate to='/login'/>}/>
+        <Route path='/editQuestion/:id' element= {<EditQuestion/>}/>
       </Routes>
     </>
   );

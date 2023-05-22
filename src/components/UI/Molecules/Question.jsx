@@ -50,7 +50,6 @@ const Question = ({question, questionAnswers}) => {
     
     const {users} = useContext(UsersContext)
 
-    console.log(questionAnswers)
 
     return ( 
         <StyledDiv>
