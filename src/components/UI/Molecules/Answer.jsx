@@ -58,6 +58,13 @@ const StyledDiv = styled.div`
         top: 10px;
     }
     
+    .date {
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        font-style: italic;
+        font-size: 0.8rem;
+    }
 `
 
 const Answer = ({answer}) => {
@@ -89,6 +96,10 @@ const Answer = ({answer}) => {
                     id: answer.id
                 })}>Delete</button>
                 <Link to={`/editAnswer/${answer.id}`}><button className="update">Edit</button></Link>
+                {
+                    answer.answerIsUpdated &&
+                    <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 10)}</span>
+                }
                 </>
                 
             }
