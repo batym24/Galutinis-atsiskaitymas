@@ -36,7 +36,7 @@ const reducer = (state,action) => {
                     return {
                         ...answer,
                         answer: action.data.answer,
-                        answerIsUpdated: new Date().toString()
+                        answerIsUpdated: new Date().toISOString()
                     }
                 }
                 else {

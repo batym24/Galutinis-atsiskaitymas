@@ -6,8 +6,10 @@ import * as yup from 'yup'
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import AnswersContext from "../../contexts/AnswersContext";
+import { Link } from "react-router-dom";
 
 const StyledMain = styled.main`
+    position: relative;
     .title {
         display: flex;
         justify-content: space-between;
@@ -67,6 +69,14 @@ const StyledMain = styled.main`
         margin: 0;
         font-size: 0.8rem;
     }
+
+    .back {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        font-size: 2rem;
+        color: black;
+    }
 `
 
 const EditAnswer = () => {
@@ -84,7 +94,7 @@ const EditAnswer = () => {
     })
 
     const values = {
-        answer: ''
+        answer: answer ? answer.answer : ""
     }
 
     const validationSchema = yup.object({
@@ -95,6 +105,7 @@ const EditAnswer = () => {
     })
 
     const formik = useFormik({
+        enableReinitialize: true,
         initialValues: values,
         validationSchema: validationSchema,
         onSubmit: () => {
@@ -141,7 +152,8 @@ const EditAnswer = () => {
                     <input type="submit" value={'Update answer'} />
                     <button onClick={formik.handleReset}>Rest</button>
                 </div>
-            </form>            
+            </form>
+            <Link to={`/question/${id}`}><i className="fa-solid fa-chevron-left back"></i></Link>            
         </StyledMain>
      );
 }
