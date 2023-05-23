@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useFormik } from "formik";
 import * as yup from 'yup'
@@ -72,8 +72,8 @@ const StyledMain = styled.main`
 `
 
 const Registration = () => {
-
     const {users, setUsers, ACTION_TYPE, validUser, setValidUser} = useContext(UsersContext)
+    const navigate = useNavigate()
 
     const values = {
         username: "",
@@ -121,6 +121,7 @@ const Registration = () => {
                     data: newUser
                 })
                 setValidUser(false)
+                navigate('/home')
             }
             else {
                 setValidUser(true)
