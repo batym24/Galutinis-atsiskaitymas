@@ -47,7 +47,7 @@
       "questionId": 1,
       "creatorId": 1,
       "answer": "99999999999999999999999999999999999999f",
-      "answerUpvotes": 0,
+      "answerUpvotes": 1,
       "answerIsUpdated": "2023-05-23T11:00:30.124Z"
     },
     {
@@ -55,7 +55,7 @@
       "questionId": "1",
       "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
       "answer": "To set a variable value when receiving a message in a Telegram bot, you'll need to use a programming language and a Telegram Bot API library. Here's an example using Python and the python-telegram-bot library",
-      "answerUpvotes": 0,
+      "answerUpvotes": 1,
       "answerIsUpdated": false
     },
     {
@@ -103,7 +103,7 @@
       "questionId": "1",
       "creatorId": 1,
       "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
-      "answerUpvotes": 0,
+      "answerUpvotes": 1,
       "answerIsUpdated": false
     },
     {
