@@ -72,7 +72,7 @@ const StyledMain = styled.main`
 `
 
 const Registration = () => {
-    const {users, setUsers, ACTION_TYPE, validUser, setValidUser} = useContext(UsersContext)
+    const {users, setUsers, ACTION_TYPE, validUser, setValidUser, setCurrentUser} = useContext(UsersContext)
     const navigate = useNavigate()
 
     const values = {
@@ -108,6 +108,7 @@ const Registration = () => {
         initialValues: values,
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
+            const loggedInUser = users.find(user => values.username === user.username && values.password == user.password)
             const newUser = {
                 id: generateId(),
                 username: formik.values.username,
@@ -121,6 +122,7 @@ const Registration = () => {
                     data: newUser
                 })
                 setValidUser(false)
+                setCurrentUser(loggedInUser)
                 navigate('/home')
             }
             else {
