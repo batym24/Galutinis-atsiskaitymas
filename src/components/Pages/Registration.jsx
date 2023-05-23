@@ -115,7 +115,6 @@ const Registration = () => {
         initialValues: values,
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
-            const loggedInUser = users.find(user => values.username === user.username && values.password == user.password)
             const newUser = {
                 id: generateId(),
                 username: formik.values.username,
@@ -129,7 +128,7 @@ const Registration = () => {
                     data: newUser
                 })
                 setValidUser(false)
-                setCurrentUser(loggedInUser)
+                setCurrentUser(newUser)
                 navigate('/home')
             }
             else {
