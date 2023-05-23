@@ -61,7 +61,7 @@ const Question = ({question, questionAnswers}) => {
                 <Link to={`/question/${question.id}`}><h3>{question.title}</h3></Link>
             </div>
             <div className="user">
-                <img src={users.find(user => user.id === question.creatorId).avatarUrl} alt="user-avatar" />
+                <img src={users.find(user => user.id === question.creatorId)?.avatarUrl} alt="user-avatar" />
                 <span>{users.find(user => user.id === question.creatorId).username}</span>
             </div>
         </StyledDiv>
