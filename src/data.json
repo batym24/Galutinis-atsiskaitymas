@@ -13,6 +13,13 @@
       "email": "admin@admin.lt",
       "password": "Test_123",
       "avatarUrl": "https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_avatarthewayofwater_1710_b7d39b03.jpeg?region=0%2C0%2C540%2C810"
+    },
+    {
+      "id": "c6d507d6-7dda-4b8d-8e6e-ed25e251a4d7",
+      "username": "user",
+      "email": "user@user.com",
+      "password": "User_123",
+      "avatarUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.veryicon.com%2Ficons%2Finternet--web%2Fprejudice%2Fuser-128.html&psig=AOvVaw1kbOb97kzQVQf-sxZ9nP9G&ust=1684906900389000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJiaib3div8CFQAAAAAdAAAAABAE"
     }
   ],
   "questions": [
