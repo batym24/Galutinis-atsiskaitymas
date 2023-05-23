@@ -32,10 +32,14 @@ const StyledDiv = styled.div`
     .user {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 15px;
 
         img {
             width: 25px;
+        }
+
+        [alt] {
+            font-size: 0.6rem;
         }
     }
     .question-title {
