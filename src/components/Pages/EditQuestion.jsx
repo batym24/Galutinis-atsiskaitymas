@@ -3,13 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from 'yup'
-import Loading from "../UI/Organisms/Loading";
 import { useContext } from "react";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import UsersContext from "../../contexts/UsersContext";
+import { Link } from "react-router-dom";
 
 
 const StyledMain = styled.main`
+    position: relative;
     .title {
         display: flex;
         justify-content: space-between;
@@ -74,6 +75,14 @@ const StyledMain = styled.main`
         font-size: 0.8rem;
     }
 
+    .back {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        font-size: 2rem;
+        color: black;
+    }
+
 `
 
 const EditQuestion = () => {
@@ -90,8 +99,8 @@ const EditQuestion = () => {
     },[])
 
     const values = {
-        title: '',
-        description: ''
+        title: question ? question.title : "",
+        description: question ? question.description : ""
     }
 
     const validationSchema = yup.object({
@@ -106,6 +115,7 @@ const EditQuestion = () => {
     })
 
     const formik = useFormik({
+        enableReinitialize: true,
         initialValues: values,
         validationSchema: validationSchema,
         onSubmit: () => {
@@ -167,7 +177,8 @@ const EditQuestion = () => {
                     <input type="submit" value={'Update question'} />
                     <button onClick={formik.handleReset}>Rest</button>
                 </div>
-            </form>            
+            </form>
+            <Link to={`/question/${id}`}><i className="fa-solid fa-chevron-left back"></i></Link>         
         </StyledMain>
      );
 }
