@@ -16,11 +16,14 @@ const StyledHeader = styled.header`
     > div {
         margin: 10px 100px;
     }
+    h1 {
+        font-family: 'Rubik Puddles', cursive;
+        color: #0091ff;
+        font-size: 3rem;
+    }
 
-    .logo {
-        img {
-            width: 150px;
-        }
+    a {
+        text-decoration: none;
     }
 
     .register-login {
@@ -74,8 +77,6 @@ const StyledHeader = styled.header`
                 border: none;
             }
         }
-
-
     }
 `
 
@@ -86,7 +87,7 @@ const Header = () => {
     return ( 
         <StyledHeader>
             <div className="logo">
-                <Link to="/home"><img src="https://www.vectorlogo.zone/logos/stackoverflow/stackoverflow-ar21.png" alt="logo" /></Link>
+                <Link to="/home"><h1>QuestionAir(e)</h1></Link>
             </div>
             <div className="register-login">
                 {

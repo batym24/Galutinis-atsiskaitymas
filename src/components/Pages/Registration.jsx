@@ -10,13 +10,17 @@ const StyledMain = styled.main`
     display: flex;
     flex-direction: column;
     background-color: #f1f2f3;
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
+
+    h1 {
+        color: #494848;
+    }
     > div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 3px solid black;
+        border: 3px solid gray;
         border-radius: 10px;
         width: 650px;
         height: 660px;
@@ -40,7 +44,7 @@ const StyledMain = styled.main`
         input {
             width: 500px;
             height: 30px;
-            border: 2px solid black;
+            border: 2px solid gray;
             border-radius: 3px;
         }
 
@@ -57,7 +61,6 @@ const StyledMain = styled.main`
             font-weight: 600;
             cursor: pointer;
         }
-
     }
     p
      {
@@ -69,6 +72,10 @@ const StyledMain = styled.main`
                 color: #0a95ff;
             }
         }
+    
+    .login {
+        font-size: 1rem;
+    }
 `
 
 const Registration = () => {
@@ -223,7 +230,7 @@ const Registration = () => {
                     </>
                 }
             </div>
-            <p>Already have an acount ? <Link to="/login">Log in</Link></p>
+            <p className="login">Already have an acount ? <Link to="/login">Log in</Link></p>
         </StyledMain>
      );
 }
