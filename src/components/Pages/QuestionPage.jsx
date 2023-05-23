@@ -87,9 +87,12 @@ const StyledMain = styled.main`
     color: black;
   }
     .edit {
-        button {
-            display: flex;
-            gap: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        a {
+            text-decoration: none;
         }
     }
     .new-answer {
