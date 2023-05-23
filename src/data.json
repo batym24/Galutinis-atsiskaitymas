@@ -20,6 +20,13 @@
       "email": "user@user.com",
       "password": "User_123",
       "avatarUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.veryicon.com%2Ficons%2Finternet--web%2Fprejudice%2Fuser-128.html&psig=AOvVaw1kbOb97kzQVQf-sxZ9nP9G&ust=1684906900389000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJiaib3div8CFQAAAAAdAAAAABAE"
+    },
+    {
+      "id": "297f1fc2-b17d-4b2a-a8a9-25966ffd0c7b",
+      "username": "DarylBishop",
+      "email": "daryl.bishop@example.com",
+      "password": "DarylBishop_123",
+      "avatarUrl": "https://randomuser.me/api/portraits/men/84.jpg"
     }
   ],
   "questions": [
@@ -86,6 +93,22 @@
       "description": "fdgdfgfdgfdgdfgdfdfgdfg",
       "questionUpvotes": 0,
       "QuestionIsUpdated": "2023-05-23T08:32:48.203Z"
+    },
+    {
+      "id": "4f8379f4-111f-4f57-9e1c-61be3f341e71",
+      "creatorId": "297f1fc2-b17d-4b2a-a8a9-25966ffd0c7b",
+      "title": "flu symptomps",
+      "description": "What are some common symptoms of the flu?",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
+    },
+    {
+      "id": "68884523-bb22-4bd5-9771-b44b153a2080",
+      "creatorId": 1,
+      "title": "excercise and mental health",
+      "description": " How does exercise benefit mental health?",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
     }
   ],
   "answers": [
@@ -190,6 +213,22 @@
       "questionId": "f9b75ddd-3591-4f48-9834-705ea23802a5",
       "creatorId": "c6d507d6-7dda-4b8d-8e6e-ed25e251a4d7",
       "answer": "If given the opportunity to converse with a historical figure, I would choose Mahatma Gandhi. I would be eager to discuss his philosophy of nonviolence and his strategies for peaceful resistance. I would inquire about his experiences during India's struggle for independence and seek guidance on promoting harmony and justice in today's world. Understanding Gandhi's principles and learning from his life's lessons could be immensely valuable in creating positive change and fostering a more peaceful society.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "01d58d43-5a3e-4a7f-b3c5-7d6ac1ae2f2c",
+      "questionId": "4f8379f4-111f-4f57-9e1c-61be3f341e71",
+      "creatorId": "297f1fc2-b17d-4b2a-a8a9-25966ffd0c7b",
+      "answer": "Common symptoms of the flu include fever, cough, sore throat, body aches, fatigue, nasal congestion, and headaches.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "eb9577d1-e6a6-4f6b-9910-7fffc5c944b7",
+      "questionId": "68884523-bb22-4bd5-9771-b44b153a2080",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "Exercise benefits mental health in multiple ways. It helps to reduce symptoms of depression and anxiety by promoting the release of endorphins, which are natural mood boosters. Regular exercise also improves sleep quality, increases self-confidence, and reduces stress levels. Additionally, physical activity can provide a distraction from negative thoughts and improve cognitive function, leading to better overall mental well-being.",
       "answerUpvotes": 0,
       "answerIsUpdated": false
     }
