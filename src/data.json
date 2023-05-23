@@ -13,6 +13,13 @@
       "email": "admin@admin.lt",
       "password": "Test_123",
       "avatarUrl": "https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_avatarthewayofwater_1710_b7d39b03.jpeg?region=0%2C0%2C540%2C810"
+    },
+    {
+      "id": "c6d507d6-7dda-4b8d-8e6e-ed25e251a4d7",
+      "username": "user",
+      "email": "user@user.com",
+      "password": "User_123",
+      "avatarUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.veryicon.com%2Ficons%2Finternet--web%2Fprejudice%2Fuser-128.html&psig=AOvVaw1kbOb97kzQVQf-sxZ9nP9G&ust=1684906900389000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJiaib3div8CFQAAAAAdAAAAABAE"
     }
   ],
   "questions": [
@@ -20,7 +27,55 @@
       "id": 1,
       "creatorId": 1,
       "title": "How to set a variable value on receiving a message in telegram bot",
-      "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work.",
+      "description": "When I hit the below endpoint, I am able to receive a message on the telegram bot.However, I would like to process the incoming message and set a variable value, For example: when the bot receives a message with text as `onChatEnde`, I would like to modify a Map variable.I tried override the sendMessage method but that doesn't seem to work. ",
+      "questionUpvotes": 28,
+      "QuestionIsUpdated": "2023-05-22T11:05:15.372Z"
+    },
+    {
+      "id": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "title": "How TO - Disable Resizing of Textarea",
+      "description": "In the CSS code, the resize property is set to none, which prevents the textarea from being resized by the user. This means that the textarea will have a fixed size and the user won't be able to drag its edges to resize it.\n\nYou can adjust the rows and cols attributes of the <textarea> element to specify the initial number of visible rows and columns for the textarea.",
+      "questionUpvotes": 11,
+      "QuestionIsUpdated": "2023-05-22T08:35:56.213Z"
+    },
+    {
+      "id": "bb143ab7-d303-497d-9d3a-a40c50452577",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "title": "What is the significance of the Great Wall of China?",
+      "description": "The Great Wall of China is an ancient architectural marvel that holds immense historical, cultural, and strategic significance. It was primarily built as a defense system to protect China from invasions and raids by nomadic tribes from the north, such as the Mongols and Xiongnu. Stretching over 13,000 miles (21,196 kilometers), it is considered the world's longest wall. ",
+      "questionUpvotes": 1,
+      "QuestionIsUpdated": false
+    },
+    {
+      "id": "5d6ccce1-0828-4d85-a10e-94e8532261b3",
+      "creatorId": 1,
+      "title": "What is the most challenging book you've ever read?",
+      "description": "The most challenging book I've ever read would have to be \"Finnegans Wake\" by James Joyce. Its complex language, layered symbolism, and non-linear narrative made it quite a daunting and perplexing read. It's a true literary puzzle that requires careful unraveling and multiple readings to fully grasp its meaning.",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
+    },
+    {
+      "id": "5a11f3b7-a7a4-470d-bfe8-8c2c28e04cf4",
+      "creatorId": 1,
+      "title": "If you could travel in time and have a conversation with any historical figure, who do you pick ?",
+      "description": "If I could travel back in time, I would choose to have a conversation with Leonardo da Vinci. I would love to discuss his innovative ideas, artistic techniques, and scientific discoveries. I would be curious to know more about his thought process, his inspirations, and how he managed to excel in such diverse fields. It would be fascinating to gain insights into his visionary mind and understand the genius behind his works.",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
+    },
+    {
+      "id": "f9b75ddd-3591-4f48-9834-705ea23802a5",
+      "creatorId": "c6d507d6-7dda-4b8d-8e6e-ed25e251a4d7",
+      "title": "Back in time",
+      "description": "If you could travel back in time and have a conversation with any historical figure, who would you choose and what would you talk about?",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
+    },
+    {
+      "id": "9234bb0e-04b0-4ddb-9971-094bd00e6bab",
+      "creatorId": "c6d507d6-7dda-4b8d-8e6e-ed25e251a4d7",
+      "title": "testaaaaas",
+      "description": "4564342gfgfdgsfcxzzxccccccccccccccccccccc",
       "questionUpvotes": 0,
       "QuestionIsUpdated": false
     }
@@ -30,7 +85,103 @@
       "id": 1,
       "questionId": 1,
       "creatorId": 1,
-      "answer": "To process incoming messages and set a variable value in a Telegram bot, you can use a library or framework such as python-telegram-bot, which provides an interface to interact with the Telegram Bot API.",
+      "answer": "99999999999999999999999999999999999999",
+      "answerUpvotes": 0,
+      "answerIsUpdated": "2023-05-22T12:19:16.709Z"
+    },
+    {
+      "id": "e4a60916-3334-41b7-a040-af587b4d5692",
+      "questionId": "1",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "To set a variable value when receiving a message in a Telegram bot, you'll need to use a programming language and a Telegram Bot API library. Here's an example using Python and the python-telegram-bot library",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "ab782fc5-4579-48aa-9fc0-5607ac47c06b",
+      "questionId": "1",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "Make sure to replace \"YOUR_BOT_TOKEN\" with the actual token of your Telegram bot. You can obtain this token by creating a new bot using the BotFather on Telegram.\n\nWith this setup, when a user sends a message to your bot, the handle_message function will be called. Inside that function, you can access the received message and set your variable value based on its content. In this example, the variable my_variable is set to the text of the received message.\n\nRemember to add the necessary logic and error handling to suit your specific use case.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "05e5f240-a4a6-4c19-b678-c71b0ffe3e18",
+      "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "77777777777777777777777777777777777777777777",
+      "answerUpvotes": 0,
+      "answerIsUpdated": "2023-05-22T10:43:20.251Z"
+    },
+    {
+      "id": "9ea1ebaf-115e-413e-bd00-3be6194608dd",
+      "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "5455555555555555555555555555555555555555555555555",
+      "answerUpvotes": 0,
+      "answerIsUpdated": "2023-05-22T10:43:32.590Z"
+    },
+    {
+      "id": "57b0937c-c31c-4b76-bef0-44cdcc935dc0",
+      "questionId": "bb143ab7-d303-497d-9d3a-a40c50452577",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "dc913c47-0195-4130-914f-42e722a82090",
+      "questionId": "bb143ab7-d303-497d-9d3a-a40c50452577",
+      "creatorId": 1,
+      "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "63929789-3766-4d29-9e01-28ca821eb723",
+      "questionId": "1",
+      "creatorId": 1,
+      "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "6a14dfd8-aee4-4c3d-9e70-18e4e67cf2f3",
+      "questionId": "af22c40b-0c3b-47e5-95d1-86568cd486c5",
+      "creatorId": 1,
+      "answer": "Construction of the Great Wall began around the 7th century BC and continued for centuries under various dynasties. Besides its defensive purpose, the wall facilitated trade and transportation routes, promoted cultural exchanges, and symbolized the unity and resilience of the Chinese civilization. Today, it stands as an iconic symbol of China's rich heritage and attracts millions of visitors from around the globe.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "cfa71a94-97bc-41cc-b3b1-9f3158315dea",
+      "questionId": "1",
+      "creatorId": 1,
+      "answer": "222222222222222222222222222222222222222222",
+      "answerUpvotes": 0,
+      "answerIsUpdated": "2023-05-22T12:14:56.568Z"
+    },
+    {
+      "id": "283acb7f-e2a2-421c-adcf-f51bafd003c0",
+      "questionId": "1",
+      "creatorId": "697a3eea-7849-4047-92a8-fdb6fe935956",
+      "answer": "While there are various libraries available to create a Telegram bot, we’ll use the pyTelegramBotAPI library. It is a simple but extensible Python implementation for the Telegram Bot API with both synchronous and asynchronous capabilities.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "d35c5013-ebfc-47dc-ad4f-8c01aa4e99f4",
+      "questionId": "5d6ccce1-0828-4d85-a10e-94e8532261b3",
+      "creatorId": 1,
+      "answer": "The most challenging book I've ever read would be \"Infinite Jest\" by David Foster Wallace. Its sprawling narrative, intricate footnotes, and extensive exploration of various themes demanded intense concentration and commitment. The unconventional structure and densely packed prose made it both intellectually stimulating and emotionally demanding. It's a book that rewards persistence but also tests the reader's patience and intellectual stamina.",
+      "answerUpvotes": 0,
+      "answerIsUpdated": false
+    },
+    {
+      "id": "a8e88ab8-7a7d-43fe-bf42-4e59d8011f73",
+      "questionId": "f9b75ddd-3591-4f48-9834-705ea23802a5",
+      "creatorId": "c6d507d6-7dda-4b8d-8e6e-ed25e251a4d7",
+      "answer": "If given the opportunity to converse with a historical figure, I would choose Mahatma Gandhi. I would be eager to discuss his philosophy of nonviolence and his strategies for peaceful resistance. I would inquire about his experiences during India's struggle for independence and seek guidance on promoting harmony and justice in today's world. Understanding Gandhi's principles and learning from his life's lessons could be immensely valuable in creating positive change and fostering a more peaceful society.",
       "answerUpvotes": 0,
       "answerIsUpdated": false
     }
