@@ -100,7 +100,7 @@ const Answer = ({answer}) => {
             }
             {
                 answer.answerIsUpdated &&
-                <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 15)}</span>
+                <span className="date">Updated on : {answer.answerIsUpdated.slice(0, 10)}</span>
             }
         </StyledDiv>
      );
