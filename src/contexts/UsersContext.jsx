@@ -3,7 +3,8 @@ import { createContext, useReducer, useEffect, useState } from "react";
 const UsersContext = createContext()
 
 const ACTION_TYPE = {
-    GET: 'getAllUsers'
+    GET: 'getAllUsers',
+    ADD: 'addNewUser'
 }
 
 const reducer = (state, action) => {
@@ -37,8 +38,6 @@ const UsersProvider = ({children}) => {
             data: data
         }))
     }, [])
-
-    console.log(users)
 
     return ( 
         <UsersContext.Provider
