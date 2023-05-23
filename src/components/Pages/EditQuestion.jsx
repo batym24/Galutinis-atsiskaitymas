@@ -17,7 +17,7 @@ const StyledMain = styled.main`
         margin: 20px 100px 80px 100px;
 
         i {
-            font-size: 8rem;
+            font-size: 10rem;
             color: #0a95ff;
         }
     }
@@ -130,7 +130,7 @@ const EditQuestion = () => {
         <StyledMain>
             <div className="title">
                 <h1>You can edit your question here</h1>
-                <i className="fa-solid fa-pen-to-square"></i>
+                <i className="fa-solid fa-clipboard-question"></i>
             </div>
             <form onSubmit={formik.handleSubmit}>
                 <div className="question-part">
