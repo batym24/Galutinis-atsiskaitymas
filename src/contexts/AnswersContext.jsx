@@ -6,7 +6,9 @@ const ANSWERS_ACTION_TYPE = {
     GET: 'getAllAnswers',
     ADD: 'addNewAnser',
     DELETE: 'deleteAnswer',
-    EDIT: 'editAnswer'
+    EDIT: 'editAnswer',
+    UPVOTE: 'upvoteAnswer',
+    DOWNVOTE: 'downvoteAnswer'
 }
 
 const reducer = (state,action) => {
@@ -25,6 +27,34 @@ const reducer = (state,action) => {
                 method: "DELETE"
             })
             return state.filter(answer => answer.id.toString() !== action.id)
+        case ANSWERS_ACTION_TYPE.UPVOTE:
+            return state.map(answer => {
+                if (answer.id.toString() === action.id.toString()){
+                    fetch(`http://localhost:8080/answers/${action.id}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({answerUpvotes: answer.answerUpvotes + 1})
+                })
+                    return {...answer, answerUpvotes: answer.answerUpvotes + 1}
+                }
+                else {
+                    return answer
+                }
+            })
+        case ANSWERS_ACTION_TYPE.DOWNVOTE:
+            return state.map(answer => {
+                if (answer.id.toString() === action.id.toString()){
+                    fetch(`http://localhost:8080/answers/${action.id}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({answerUpvotes: answer.answerUpvotes - 1})
+                })
+                    return {...answer, answerUpvotes: answer.answerUpvotes - 1}
+                }
+                else {
+                    return answer
+                }
+            })
         case ANSWERS_ACTION_TYPE.EDIT:
             fetch(`http://localhost:8080/answers/${action.id}`, {
                 method: "PATCH",
