@@ -39,6 +39,14 @@
       "description": "The Great Wall of China is an ancient architectural marvel that holds immense historical, cultural, and strategic significance. It was primarily built as a defense system to protect China from invasions and raids by nomadic tribes from the north, such as the Mongols and Xiongnu. Stretching over 13,000 miles (21,196 kilometers), it is considered the world's longest wall. ",
       "questionUpvotes": 0,
       "QuestionIsUpdated": false
+    },
+    {
+      "id": "27aeffbd-bff2-4c8f-ae0a-1566809a121b",
+      "creatorId": 1,
+      "title": "Time travel",
+      "description": "If you could travel back in time and have a conversation with any historical figure, who would you choose and what would you talk about?",
+      "questionUpvotes": 0,
+      "QuestionIsUpdated": false
     }
   ],
   "answers": [

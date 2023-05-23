@@ -6,6 +6,7 @@ import {v4 as generateId} from 'uuid'
 import UsersContext from "../../contexts/UsersContext";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const StyledMain = styled.main`
     .title {
@@ -70,10 +71,9 @@ const StyledMain = styled.main`
 `
 
 const AskNewQuestion = () => {
-
     const {currentUser} = useContext(UsersContext)
-
     const {setQuestions, QUESTIONS_ACTION_TYPE, questions} = useContext(QuestionsContext)
+    const navigate = useNavigate()
 
     const values = {
         title: "",
@@ -107,6 +107,7 @@ const AskNewQuestion = () => {
                 type: QUESTIONS_ACTION_TYPE.ADD,
                 data: newQuestion
             })
+            navigate('/home')
         }
     })
 
