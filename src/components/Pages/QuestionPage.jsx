@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UsersContext from "../../contexts/UsersContext";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import AnswersContext from "../../contexts/AnswersContext";
@@ -152,6 +152,7 @@ const QuestionPage = () => {
     const {id} = useParams()
     const {setQuestions, QUESTIONS_ACTION_TYPE, questions} = useContext(QuestionsContext)
     const [question, setQuestion] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`http://localhost:8080/questions/${id}`)
@@ -216,10 +217,13 @@ const QuestionPage = () => {
                                     question.creatorId.toString() === currentUser.id.toString() &&
                                     <div className="edit">
                                         <Link to={`/editQuestion/${id}`}><button>Edit Question</button></Link>
-                                        <button onClick={() => setQuestions({
-                                            type: QUESTIONS_ACTION_TYPE,
-                                            id: id
-                                        })}>Delete Question</button>
+                                        <button onClick={() => {
+                                            setQuestions({
+                                                type: QUESTIONS_ACTION_TYPE.DELETE,
+                                                id: id
+                                            })
+                                            navigate('/home')
+                                        }}>Delete Question</button>
                                     </div>
                                 }
                                 {

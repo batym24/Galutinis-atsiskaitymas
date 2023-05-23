@@ -26,6 +26,7 @@ const reducer = (state, action) => {
             fetch(`http://localhost:8080/questions/${action.id}`, {
                 method: "DELETE"
             })
+            return state.filter(question => question.id.toString() !== action.id.toString())
         case QUESTIONS_ACTION_TYPE.UPVOTE:
             return state.map(question => {
                 if (question.id.toString() === action.id.toString()){
