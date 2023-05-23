@@ -49,6 +49,15 @@ const StyledMain = styled.main`
         }
         }
 
+        .filter {
+            display: flex;
+            justify-content: flex-end;
+
+            input[type="submit"]{
+                cursor: pointer;
+            }
+        };
+
         .filter > form{
             display: flex;
             gap: 5px;
@@ -64,6 +73,16 @@ const StyledMain = styled.main`
             }
         }
     }
+    .checkbox {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        > div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 `
 
 const Home = () => {
@@ -71,6 +90,7 @@ const Home = () => {
     const {questions} = useContext(QuestionsContext)
     const {answers} = useContext(AnswersContext)
     const [filter, setFilter] = useState("")
+    const [filteredBy, setFilteredBy] = useState("")
 
     return ( 
         <StyledMain>
@@ -83,48 +103,79 @@ const Home = () => {
                     <div className="filter">
                         <form onSubmit={(e) => {
                             e.preventDefault()
-                            setFilter(e.target.elements[0].value) 
+                            console.log(e)
+                            setFilteredBy(e.target.elements["filter-by"].value)
                         }}>
-                            <select>
-                                <option value="allQuestions">All questions</option>
-                                <option value="answered">Answered questions</option>
-                                <option value="notAnswered">Not answered questions</option>
-                            </select>
-                            <input type="submit" value={"Filter"} />
+                            <div className="checkbox">
+                                <div>
+                                    <label htmlFor="answered-unanswered">Answered / Unanswered</label>
+                                    <input type="radio" name="filter-by" value={"answered-unanswered"} />
+                                </div>
+                                <div>
+                                    <label htmlFor="answered">By votes</label>
+                                    <input type="radio" name="filter-by" value={"by-votes"} />
+                                </div>
+                                <input type="submit" value={'Change'} />
+                            </div>
                         </form>
+                        {
+                            filteredBy === "answered-unanswered" &&
+                            <form onSubmit={(e) => {
+                                e.preventDefault()
+                                console.log(e.target.elements.options.value)
+                                setFilter(e.target.elements.options.value)
+                            }}>
+                                <select name='options'>
+                                    <option value="allQuestions">All questions</option>
+                                    <option value="answered">Answered questions</option>
+                                    <option value="notAnswered">Not answered questions</option>
+                                </select>
+                                <input type="submit" value={"Filter"} />
+                            </form>
+                        }
                     </div>
                 </div>
                 <div className="questions">
-                    {
-                        questions.map(question => {
-                            const questionAnswers = answers.filter(answer => answer.questionId.toString() === question.id.toString())
-                            const questionId = answers.map(answer => answer.questionId)
-                            if(filter === 'answered'){
-                                if(questionId.includes(question.id)){
-                                    return (<Question 
-                                        key={question.id}
-                                        question = {question}
-                                        questionAnswers = {questionAnswers}
-                                    />)
-                                }
-                            }
-                            else if(filter === "notAnswered"){
-                                if(!questionId.includes(question.id)){
-                                    return (<Question 
-                                        key={question.id}
-                                        question = {question}
-                                        questionAnswers = {questionAnswers}
-                                    />)
-                                }
-                            }
-                            else if(filter === "allQuestions" || filter === ""){
+                    {   
+                        filteredBy === 'by-votes' ?
+                            questions.sort((a, b) => b.questionUpvotes - a.questionUpvotes).map(question => {
+                                const questionAnswers = answers.filter(answer => answer.questionId.toString() === question.id.toString())
                                 return (<Question 
                                     key={question.id}
                                     question = {question}
                                     questionAnswers = {questionAnswers}
                                 />)
+                            })
+                             :
+                             questions.map(question => {
+                                const questionAnswers = answers.filter(answer => answer.questionId.toString() === question.id.toString())
+                                const questionId = answers.map(answer => answer.questionId)
+                                if(filter === 'answered'){
+                                    if(questionId.includes(question.id)){
+                                        return (<Question 
+                                            key={question.id}
+                                            question = {question}
+                                            questionAnswers = {questionAnswers}
+                                        />)
+                                    }
+                                }
+                                else if(filter === "notAnswered"){
+                                    if(!questionId.includes(question.id)){
+                                        return (<Question 
+                                            key={question.id}
+                                            question = {question}
+                                            questionAnswers = {questionAnswers}
+                                        />)
+                                    }
+                                }
+                                else if(filter === "allQuestions" || filter === ""){
+                                    return (<Question 
+                                        key={question.id}
+                                        question = {question}
+                                        questionAnswers = {questionAnswers}
+                                    />)
+                                }
                             }
-                        }
                             )
                     }
                 </div>
