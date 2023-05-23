@@ -8,16 +8,21 @@ import { useContext } from "react";
 
 
 const StyledMain = styled.main`
-        display: flex;
+    display: flex;
     flex-direction: column;
     background-color: #f1f2f3;
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
+
+    h1 {
+        color: #494848;
+    }
+
     > div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 3px solid black;
+        border: 3px solid gray;
         border-radius: 10px;
         width: 650px;
         height: 660px;
@@ -41,7 +46,7 @@ const StyledMain = styled.main`
         input {
             width: 500px;
             height: 30px;
-            border: 2px solid black;
+            border: 2px solid gray;
             border-radius: 3px;
         }
 
@@ -70,12 +75,13 @@ const StyledMain = styled.main`
                 color: #0a95ff;
             }
         }
+    .register {
+        font-size: 1rem;
+    }
 `
 
 const Login = () => {
-
     const navigate = useNavigate()
-
     const {currentUser, setCurrentUser, users, validUser, setValidUser} = useContext(UsersContext)
 
     const values = {
@@ -161,7 +167,7 @@ const Login = () => {
                     </>
                 }
             </div>
-            <p>Dont have an account yet ? <Link to="/register">Register</Link></p>
+            <p className="register">Dont have an account yet ? <Link to="/register">Register</Link></p>
         </StyledMain>
      );
 }
