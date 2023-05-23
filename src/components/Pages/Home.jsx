@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import QuestionsContext from "../../contexts/QuestionsContext";
 import AnswersContext from "../../contexts/AnswersContext";
 import Question from "../UI/Molecules/Question";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const StyledMain = styled.main`
     display: flex;
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
     .main-container {
         display: flex;
         flex-direction: column;
@@ -47,14 +47,21 @@ const StyledMain = styled.main`
             button:hover {
             background-color: #056fc0;
         }
-
-
         }
 
-        .filter{
+        .filter > form{
             display: flex;
+            gap: 5px;
             justify-content: flex-end;
             margin: 20px 50px;
+
+            input, select{
+                background-color: #e1ecf4;
+                color: #39739d;
+                border: 1px solid #7aa7c7;
+                padding: 5px 15px;
+                border-radius: 5px;
+            }
         }
     }
 `
@@ -63,6 +70,7 @@ const Home = () => {
 
     const {questions} = useContext(QuestionsContext)
     const {answers} = useContext(AnswersContext)
+    const [filter, setFilter] = useState("")
 
     return ( 
         <StyledMain>
@@ -73,18 +81,49 @@ const Home = () => {
                         <Link to="/askQuestion"><button>Ask question</button></Link>
                     </div>
                     <div className="filter">
-                        <button>Filter</button>
+                        <form onSubmit={(e) => {
+                            e.preventDefault()
+                            setFilter(e.target.elements[0].value) 
+                        }}>
+                            <select>
+                                <option value="allQuestions">All questions</option>
+                                <option value="answered">Answered questions</option>
+                                <option value="notAnswered">Not answered questions</option>
+                            </select>
+                            <input type="submit" value={"Filter"} />
+                        </form>
                     </div>
                 </div>
                 <div className="questions">
                     {
                         questions.map(question => {
                             const questionAnswers = answers.filter(answer => answer.questionId.toString() === question.id.toString())
-                            return (<Question 
-                                key={question.id}
-                                question = {question}
-                                questionAnswers = {questionAnswers}
-                            />)
+                            const questionId = answers.map(answer => answer.questionId)
+                            if(filter === 'answered'){
+                                if(questionId.includes(question.id)){
+                                    return (<Question 
+                                        key={question.id}
+                                        question = {question}
+                                        questionAnswers = {questionAnswers}
+                                    />)
+                                }
+                            }
+                            else if(filter === "notAnswered"){
+                                if(!questionId.includes(question.id)){
+                                    return (<Question 
+                                        key={question.id}
+                                        question = {question}
+                                        questionAnswers = {questionAnswers}
+                                    />)
+                                }
+                            }
+                            else if(filter === "allQuestions" || filter === ""){
+                                return (<Question 
+                                    key={question.id}
+                                    question = {question}
+                                    questionAnswers = {questionAnswers}
+                                />)
+                            }
                         }
                             )
                     }
