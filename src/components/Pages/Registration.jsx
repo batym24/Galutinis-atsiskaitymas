@@ -129,7 +129,7 @@ const Registration = () => {
                 })
                 setValidUser(false)
                 setCurrentUser(newUser)
-                navigate('/home')
+                navigate('/')
             }
             else {
                 setValidUser(true)

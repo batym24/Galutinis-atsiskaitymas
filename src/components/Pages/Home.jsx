@@ -175,11 +175,9 @@ const Home = () => {
                                         questionAnswers = {questionAnswers}
                                     />)
                                 }
-                            }
-                            )
+                            })
                     }
                 </div>
-
             </div>
         </StyledMain>
      );

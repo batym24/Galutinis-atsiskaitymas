@@ -110,7 +110,7 @@ const Login = () => {
             if(loggedInUser){
                 setCurrentUser(loggedInUser)
                 setValidUser(false)
-                navigate('/home')
+                navigate('/')
             }
             else {
                 setValidUser(true)

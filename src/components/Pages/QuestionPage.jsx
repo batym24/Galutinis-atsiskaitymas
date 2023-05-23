@@ -226,7 +226,7 @@ const QuestionPage = () => {
                                                 type: QUESTIONS_ACTION_TYPE.DELETE,
                                                 id: id
                                             })
-                                            navigate('/home')
+                                            navigate('/')
                                         }}>Delete Question</button>
                                     </div>
                                 }
@@ -297,7 +297,7 @@ const QuestionPage = () => {
                                 </div>
                             </div>
                         }
-                        <Link to='/home'><i className="fa-solid fa-chevron-left"></i></Link>
+                        <Link to='/'><i className="fa-solid fa-chevron-left"></i></Link>
                     </section> :
                     <Loading/>
             }

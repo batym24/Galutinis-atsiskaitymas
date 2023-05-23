@@ -87,7 +87,7 @@ const Header = () => {
     return ( 
         <StyledHeader>
             <div className="logo">
-                <Link to="/home"><h1>QuestionAir(e)</h1></Link>
+                <Link to="/"><h1>QuestionAir(e)</h1></Link>
             </div>
             <div className="register-login">
                 {

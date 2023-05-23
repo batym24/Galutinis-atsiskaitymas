@@ -108,7 +108,7 @@ const AskNewQuestion = () => {
                 type: QUESTIONS_ACTION_TYPE.ADD,
                 data: newQuestion
             })
-            navigate('/home')
+            navigate('/')
         }
     })
 
