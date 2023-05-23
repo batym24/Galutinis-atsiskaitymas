@@ -66,7 +66,8 @@ const reducer = (state, action) => {
                     return {
                         ...question,
                         title: action.data.title,
-                        description: action.data.description
+                        description: action.data.description,
+                        QuestionIsUpdated: new Date().toISOString()
                     }
                 }
                 else{
