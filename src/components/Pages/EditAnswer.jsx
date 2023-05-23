@@ -9,6 +9,7 @@ import AnswersContext from "../../contexts/AnswersContext";
 import { Link } from "react-router-dom";
 
 const StyledMain = styled.main`
+    min-height: calc(100vh - 200px);
     position: relative;
     .title {
         display: flex;

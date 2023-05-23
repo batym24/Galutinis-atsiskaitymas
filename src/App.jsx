@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import AskNewQuestion from './components/Pages/AskNewQuestion';
 import EditAnswer from './components/Pages/EditAnswer';
 import EditQuestion from './components/Pages/EditQuestion';
+import Footer from './components/UI/Organisms/Footer';
 
 const App = () => {
 

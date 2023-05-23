@@ -5,8 +5,8 @@ const StyledFooter = styled.footer`
     justify-content: center;
     align-items: center;
     height: 100px;
-
-    border-top: gray;
+    border-top: 1px solid gray;
+    background-color: white;
 
 
     h3 {
