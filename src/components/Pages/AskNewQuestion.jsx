@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const StyledMain = styled.main`
+    min-height: calc(100vh - 200px);
     .title {
         display: flex;
         justify-content: space-between;
