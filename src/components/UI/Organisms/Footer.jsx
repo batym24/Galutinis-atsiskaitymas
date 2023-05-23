@@ -5,7 +5,9 @@ const StyledFooter = styled.footer`
     justify-content: center;
     align-items: center;
     height: 100px;
-    border-top: #babfc4;
+
+    border-top: gray;
+
 
     h3 {
         font-style: italic;

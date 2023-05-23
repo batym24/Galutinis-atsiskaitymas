@@ -15,7 +15,7 @@ import Answer from "../UI/Molecules/Answer";
 const StyledMain = styled.main`
   position: relative;
   section {
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
   }
   .container {
     width: 90vw;
