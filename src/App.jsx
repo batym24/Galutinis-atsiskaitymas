@@ -27,6 +27,7 @@ const App = () => {
         <Route path='/editAnswer/:id' element= {<EditAnswer/>}/>
         <Route path='/editQuestion/:id' element= {<EditQuestion/>}/>
       </Routes>
+      <Footer/>
     </>
   );
 }
