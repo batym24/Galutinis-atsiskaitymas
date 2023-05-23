@@ -208,7 +208,7 @@ const QuestionPage = () => {
     return ( 
         <StyledMain>
             {
-                question && answers ?
+                question && answers && questions ?
                     <section>
                         <div className="container">
                             <div className="title">
@@ -227,8 +227,8 @@ const QuestionPage = () => {
                                     </div>
                                 }
                                 {
-                                    question.QuestionIsUpdated && 
-                                    <span className="date">Updated on: {question.QuestionIsUpdated.slice(0, 10)}</span>
+                                    questions.find(question => question.id.toString() === id.toString()).QuestionIsUpdated && 
+                                    <span className="date">Updated on: {questions.find(question => question.id.toString() === id.toString()).QuestionIsUpdated.slice(0, 10)}</span>
                                 }
                             </div>
                             <div className="question-description">
