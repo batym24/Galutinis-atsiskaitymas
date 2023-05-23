@@ -216,7 +216,10 @@ const QuestionPage = () => {
                                     question.creatorId.toString() === currentUser.id.toString() &&
                                     <div className="edit">
                                         <Link to={`/editQuestion/${id}`}><button>Edit Question</button></Link>
-                                        <button>Delete Question</button>
+                                        <button onClick={() => setQuestions({
+                                            type: QUESTIONS_ACTION_TYPE,
+                                            id: id
+                                        })}>Delete Question</button>
                                     </div>
                                 }
                                 {
